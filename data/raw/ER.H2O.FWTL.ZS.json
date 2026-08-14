@@ -1,0 +1,1058 @@
+[
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2025",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2024",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2023",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2022",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2021",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2020",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2019",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2018",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2017",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2016",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2015",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2014",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2013",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2012",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2011",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2010",
+    "value": 36.4586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2009",
+    "value": 38.2862068965517,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2008",
+    "value": 40.1137931034483,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2007",
+    "value": 41.9413793103448,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2006",
+    "value": 43.7689655172414,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2005",
+    "value": 45.5965517241379,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2004",
+    "value": 47.4241379310345,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2003",
+    "value": 49.251724137931,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2002",
+    "value": 51.0793103448276,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2001",
+    "value": 47.2637931034483,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2000",
+    "value": 43.448275862069,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1999",
+    "value": 42.3586896551724,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1998",
+    "value": 41.2691034482759,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1997",
+    "value": 40.1795172413793,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1996",
+    "value": 39.0899310344828,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1995",
+    "value": 38.8158620689655,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1994",
+    "value": 38.5744827586207,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1993",
+    "value": 38.0503448275862,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1992",
+    "value": 38.0744827586207,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1991",
+    "value": 36.238275862069,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1990",
+    "value": 34.4020689655172,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1989",
+    "value": 35.1172413793103,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1988",
+    "value": 35.8206896551724,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1987",
+    "value": 36.5241379310345,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1986",
+    "value": 37.2275862068966,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1985",
+    "value": 37.9310344827586,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1984",
+    "value": 37.2758620689655,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1983",
+    "value": 36.6206896551724,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1982",
+    "value": 35.9655172413793,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1981",
+    "value": 35.3103448275862,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1980",
+    "value": 34.6551724137931,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1979",
+    "value": 33.9310344827586,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1978",
+    "value": 33.2068965517241,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1977",
+    "value": 32.4827586206897,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1976",
+    "value": 31.7586206896552,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1975",
+    "value": 31.0344827586207,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1974",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1973",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1972",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1971",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1970",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1969",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1968",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1967",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1966",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1965",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1964",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1963",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1962",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1961",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.FWTL.ZS",
+      "value": "Annual freshwater withdrawals, total (% of internal resources)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1960",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  }
+]

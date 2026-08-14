@@ -1,0 +1,1058 @@
+[
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2025",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2024",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2023",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2022",
+    "value": 776.874555440233,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2021",
+    "value": 784.750044392498,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2020",
+    "value": 792.69175377529,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2019",
+    "value": 800.863872528099,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2018",
+    "value": 809.157204177707,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2017",
+    "value": 818.136864254054,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2016",
+    "value": 828.016491918545,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2015",
+    "value": 837.966517631914,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2014",
+    "value": 847.834717837682,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2013",
+    "value": 858.303782772665,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2012",
+    "value": 869.428585450784,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2011",
+    "value": 881.121837030865,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2010",
+    "value": 893.214208537058,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2009",
+    "value": 905.379194973035,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2008",
+    "value": 917.525035066067,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2007",
+    "value": 929.890489682897,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2006",
+    "value": 942.440357661965,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2005",
+    "value": 955.26261420988,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2004",
+    "value": 968.18290564243,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2003",
+    "value": 980.676778571468,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2002",
+    "value": 993.213883266956,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2001",
+    "value": 1006.43273630008,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2000",
+    "value": 1020.28484593787,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1999",
+    "value": 1034.70991497218,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1998",
+    "value": 1049.90114999655,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1997",
+    "value": 1065.65394754785,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1996",
+    "value": 1081.76231913727,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1995",
+    "value": 1098.50860789451,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1994",
+    "value": 1115.34935318583,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1993",
+    "value": 1132.16742991669,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1992",
+    "value": 1150.22456349771,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1991",
+    "value": 1169.40133184327,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1990",
+    "value": 1189.71669604515,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1989",
+    "value": 1211.39138994797,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1988",
+    "value": 1234.01503728172,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1987",
+    "value": 1257.89480806954,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1986",
+    "value": 1283.14024948583,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1985",
+    "value": 1311.38923918306,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1984",
+    "value": 1342.9794452828,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1983",
+    "value": 1376.97253690002,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1982",
+    "value": 1413.23345963742,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1981",
+    "value": 1451.05920066352,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1980",
+    "value": 1490.24074736498,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1979",
+    "value": 1529.89179075364,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1978",
+    "value": 1569.48615834979,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1977",
+    "value": 1609.79143986186,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1976",
+    "value": 1650.14792722643,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1975",
+    "value": 1690.88460435574,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1974",
+    "value": 1733.01504818798,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1973",
+    "value": 1776.27846264202,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1972",
+    "value": 1821.07132747057,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1971",
+    "value": 1867.68723967097,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1970",
+    "value": 1916.79155004257,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1969",
+    "value": 1968.20266786478,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1968",
+    "value": 2021.20184983181,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1967",
+    "value": 2076.14810095091,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1966",
+    "value": 2132.81322108852,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1965",
+    "value": 2190.46947879138,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1964",
+    "value": 2248.25616723801,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1963",
+    "value": 2305.70426464651,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1962",
+    "value": 2366.74955186821,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1961",
+    "value": 2430.62554662883,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "ER.H2O.INTR.PC",
+      "value": "Renewable internal freshwater resources per capita (cubic meters)"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1960",
+    "value": null,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  }
+]

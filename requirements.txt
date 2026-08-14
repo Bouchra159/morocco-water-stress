@@ -1,0 +1,6 @@
+pandas>=2.0
+requests>=2.28
+matplotlib>=3.7
+geopandas>=0.14
+folium>=0.15
+mapclassify>=2.6

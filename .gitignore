@@ -1,0 +1,17 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# never commit private research / agency data (kept out on purpose)
+data/private/
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# os
+.DS_Store
+Thumbs.db

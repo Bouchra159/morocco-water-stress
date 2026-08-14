@@ -1,0 +1,13 @@
+# Reported national reservoir (dam) fill rates for Morocco.
+# NOTE: these are NOT from the World Bank API. They are figures reported by
+# Moroccan authorities and press (Ministry of Equipment and Water / basin
+# agencies, relayed by outlets such as Reuters, Morocco World News, HESPRESS).
+# They are included as reported context and are hand-entered here so their
+# provenance stays separate from the API-derived indicators.
+# Fill rate = stored volume as a share of total reservoir capacity.
+date,national_fill_pct,note,source
+2018-01-01,67.0,early-decade reference level,press-reported
+2020-01-01,49.0,drought years begin,press-reported
+2022-01-01,33.0,persistent drought,press-reported
+2023-01-01,31.5,continued decline,press-reported
+2024-01-01,23.2,multi-year drought low,press-reported

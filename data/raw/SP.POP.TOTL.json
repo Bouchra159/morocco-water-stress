@@ -1,0 +1,1058 @@
+[
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2025",
+    "value": 38430770,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2024",
+    "value": 38081173,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2023",
+    "value": 37712505,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2022",
+    "value": 37329064,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2021",
+    "value": 36954442,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2020",
+    "value": 36584208,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2019",
+    "value": 36210898,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2018",
+    "value": 35839760,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2017",
+    "value": 35446392,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2016",
+    "value": 35023457,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2015",
+    "value": 34607588,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2014",
+    "value": 34204780,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2013",
+    "value": 33787571,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2012",
+    "value": 33355241,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2011",
+    "value": 32912588,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2010",
+    "value": 32467016,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2009",
+    "value": 32030778,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2008",
+    "value": 31606767,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2007",
+    "value": 31186468,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2006",
+    "value": 30771178,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2005",
+    "value": 30358144,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2004",
+    "value": 29953018,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2003",
+    "value": 29571415,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2002",
+    "value": 29198142,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2001",
+    "value": 28814643,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "2000",
+    "value": 28423435,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1999",
+    "value": 28027179,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1998",
+    "value": 27621648,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1997",
+    "value": 27213337,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1996",
+    "value": 26808107,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1995",
+    "value": 26399429,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1994",
+    "value": 26000822,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1993",
+    "value": 25614586,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1992",
+    "value": 25212468,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1991",
+    "value": 24799014,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1990",
+    "value": 24375551,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1989",
+    "value": 23939414,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1988",
+    "value": 23500524,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1987",
+    "value": 23054392,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1986",
+    "value": 22600803,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1985",
+    "value": 22113953,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1984",
+    "value": 21593778,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1983",
+    "value": 21060696,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1982",
+    "value": 20520318,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1981",
+    "value": 19985401,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1980",
+    "value": 19459943,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1979",
+    "value": 18955589,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1978",
+    "value": 18477385,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1977",
+    "value": 18014756,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1976",
+    "value": 17574182,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1975",
+    "value": 17150786,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1974",
+    "value": 16733842,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1973",
+    "value": 16326269,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1972",
+    "value": 15924692,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1971",
+    "value": 15527225,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1970",
+    "value": 15129449,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1969",
+    "value": 14734255,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1968",
+    "value": 14347899,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1967",
+    "value": 13968175,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1966",
+    "value": 13597065,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1965",
+    "value": 13239171,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1964",
+    "value": 12898886,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1963",
+    "value": 12577502,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1962",
+    "value": 12253092,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1961",
+    "value": 11931085,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  },
+  {
+    "indicator": {
+      "id": "SP.POP.TOTL",
+      "value": "Population, total"
+    },
+    "country": {
+      "id": "MA",
+      "value": "Morocco"
+    },
+    "countryiso3code": "MAR",
+    "date": "1960",
+    "value": 11624933,
+    "unit": "",
+    "obs_status": "",
+    "decimal": 0
+  }
+]
