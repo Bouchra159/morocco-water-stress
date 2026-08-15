@@ -47,6 +47,10 @@ IMG = {
     "agri": load("fig3_agriculture_share.png", 1000, "JPEG", 88),
 }
 
+# the animation must stay a GIF (embed raw bytes, not re-encoded)
+IMG["gif"] = "data:image/gif;base64," + base64.b64encode(
+    (FIG / "reservoir_timelapse.gif").read_bytes()).decode()
+
 total_kb = sum(len(v) for v in IMG.values()) / 1024
 print(f"embedded {len(IMG)} images, ~{total_kb:.0f} KB base64")
 
@@ -198,6 +202,8 @@ footer h3{{color:var(--text); margin-top:0}}
   plain. I pulled every dry-season <strong>Sentinel-2</strong> image from 2017 to 2025,
   mapped the open water with a spectral index (NDWI) and an automatic threshold, and
   measured the surface area myself. No estimates &mdash; a measurement.</p>
+  <div class="figure"><img src="{IMG['gif']}" alt="Animated timelapse of the Al Massira reservoir shrinking from 2017 to 2025" loading="lazy">
+    <p class="cap">Nine dry seasons: the reservoir draining against the pale outline of its 2017 pool. Every frame is a real Sentinel-2 measurement.</p></div>
   <div class="statrow">
     <div><div class="n" style="color:var(--water)">98 km&sup2;</div><div class="l">water surface in 2017</div></div>
     <div><div class="n" style="color:var(--crisis)">9 km&sup2;</div><div class="l">what remained in 2024</div></div>
@@ -243,6 +249,19 @@ footer h3{{color:var(--text); margin-top:0}}
   is, where it goes, who needs it most. That is the work I want to do.</p>
 </div></section>
 
+<section class="section--tint"><div class="wrap reveal">
+  <p class="eyebrow">Why I made this</p>
+  <h2>A map is a way of saying: look closer</h2>
+  <p>I am from Morocco, and I love this kind of work &mdash; the moment a column of numbers
+  becomes a place you can see, and a place becomes people you cannot look away from. Water is
+  my country&rsquo;s hardest question, and researchers here are already asking it: teams at
+  UM6P and elsewhere track this same basin from space and from the ground. I wanted to add
+  something small but <strong>open</strong> &mdash; a project anyone can download, rerun, and
+  build on. No paywall, no login. Just open data, honest methods, and a story told plainly.</p>
+  <p>If a map makes one more person care about a reservoir they will never visit, it has done
+  its job. That is the work I want to spend my life on.</p>
+</div></section>
+
 <footer><div class="wrap">
   <h3>About this story</h3>
   <p class="muted">I built this to make a slow, invisible crisis visible &mdash; using only
@@ -254,6 +273,12 @@ footer h3{{color:var(--text); margin-top:0}}
   Boundaries &mdash; geoBoundaries (CC&nbsp;BY&nbsp;4.0). Population &mdash; HCP Morocco 2024 census. Irrigation &mdash; ORMVAD.<br>
   Maps &mdash; QGIS / PyQGIS. Basemaps &mdash; Esri World Imagery, CARTO, OpenTopoMap.<br>
   Code &amp; full pipeline: <a href="https://github.com/Bouchra159/morocco-water-stress">github.com/Bouchra159/morocco-water-stress</a>
+  </p>
+  <p class="src muted" style="margin-top:1.4rem">
+  <strong style="color:var(--text)">In dialogue with research.</strong> This project corroborates and builds on published work, including:<br>
+  &middot; <a href="https://www.nature.com/articles/s41598-025-06240-1">Monitoring water crisis from space across a Mediterranean region</a> &mdash; <em>Scientific Reports</em>, 2025<br>
+  &middot; <a href="https://www.researchgate.net/publication/367763659">Temporal evolution of the water retention of Al&nbsp;Massira Dam</a> &mdash; 2023<br>
+  &middot; <a href="https://doi.org/10.3390/rs17020281">Drought propagation in the Oum&nbsp;Er-Rbia watershed</a> &mdash; <em>Remote Sensing</em>, 2025
   </p>
   <p class="byline">Analysis, cartography &amp; words &mdash; Bouchra Daddaoui &middot; 2026</p>
 </div></footer>
