@@ -94,13 +94,19 @@ Built in `src/qgis_community_map.py` from open census (HCP Morocco), irrigation
 (ORMVAD), and the Sentinel-2 reservoir extents; community figures are documented
 with sources in `data/raw/communities_al_massira.csv`.
 
-### The basin in context
+### The physical story: where the water comes from
 
-![Oum Er-Rbia basin — QGIS terrain map](figures/qgis_basin_map.png)
+Al Massira does not make its own water — it catches it. This shaded-relief map uses
+a **hypsometric tint over a hillshade** (the technique behind award-winning physical
+cartography) built from the open **Copernicus 30 m DEM**, to show how Middle Atlas
+snowmelt drains down the Oum Er-Rbia into the reservoir, and from there toward
+Casablanca and the coast.
 
-The terrain map is scripted with **PyQGIS** (`src/qgis_basin_map.py`) over
-OpenTopoMap; a lighter Python version (`src/build_map.py`) produces both a static
-map and an interactive `figures/oum_er_rbia_map.html`.
+![The Water Journey — shaded-relief map of the Oum Er-Rbia headwaters](figures/map_water_journey.png)
+
+Built in `src/qgis_water_journey.py` (terrain in `src/fetch_dem.py`). A lighter
+terrain map (`src/qgis_basin_map.py`, over OpenTopoMap) and an interactive folium
+version (`figures/oum_er_rbia_map.html`) are also included.
 
 ## How this connects to real research
 
@@ -118,6 +124,7 @@ pipeline. See **[REFERENCES.md](REFERENCES.md)** for the sources and honest fram
 | Renewable freshwater per capita, totals, withdrawals, population | [World Bank Open Data](https://data.worldbank.org/country/morocco) API (indicators `ER.H2O.INTR.PC`, `ER.H2O.INTR.K3`, `ER.H2O.FWTL.ZS`, `ER.H2O.FWAG.ZS`, `SP.POP.TOTL`) | CC BY 4.0 |
 | Administrative boundaries (ADM0/ADM1) | [geoBoundaries](https://www.geoboundaries.org/) | CC BY 4.0 |
 | Satellite imagery (reservoir measurement) | [Sentinel-2 L2A](https://registry.opendata.aws/sentinel-2-l2a-cogs/) via [Earth Search STAC](https://earth-search.aws.element84.com/v1) | open (Copernicus) |
+| Terrain / elevation (shaded relief) | [Copernicus GLO-30 DEM](https://registry.opendata.aws/copernicus-dem/) (ESA / Copernicus) | open |
 | Basemap terrain | [OpenTopoMap](https://opentopomap.org/) | CC-BY-SA |
 | Reservoir fill rates | Figures reported by Moroccan authorities / press (hand-entered, sourced in `data/raw/reservoir_levels_reported.csv`) | reported context |
 
@@ -137,6 +144,7 @@ python src/build_figures.py            # national charts -> figures/
 python src/build_map.py                # static + interactive basin maps
 python src/build_reservoir_figures.py  # Sentinel-2 Al Massira analysis (downloads imagery)
 python src/export_reservoir_vectors.py # vectorise water masks -> GeoPackage
+python src/fetch_dem.py                # Copernicus 30m DEM for shaded relief
 python src/build_reservoir_gif.py      # animated timelapse GIF
 python src/build_storymap.py           # self-contained scrollytelling page
 
@@ -144,6 +152,7 @@ python src/build_storymap.py           # self-contained scrollytelling page
 #   src/qgis_basin_map.py          terrain map of the basin
 #   src/qgis_reservoir_layout.py   high-res 2017-vs-2024 satellite map
 #   src/qgis_community_map.py       "who depends on Al Massira" map
+#   src/qgis_water_journey.py       shaded-relief + hypsometric terrain map
 ```
 
 ## Repository layout

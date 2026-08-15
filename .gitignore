@@ -19,3 +19,7 @@ Thumbs.db
 # sqlite sidecars from open GeoPackages
 *.gpkg-shm
 *.gpkg-wal
+
+# large rasters (regenerate via src/fetch_dem.py)
+data/dem/
+*.tif
