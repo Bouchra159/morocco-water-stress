@@ -15,3 +15,7 @@ data/private/
 # os
 .DS_Store
 Thumbs.db
+
+# sqlite sidecars from open GeoPackages
+*.gpkg-shm
+*.gpkg-wal
