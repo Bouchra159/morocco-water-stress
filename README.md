@@ -15,11 +15,16 @@ reproducible from the scripts in `src/`.
 > of its open water — the animation above is nine real measurements, not an estimate.
 > Full analysis [below](#measuring-the-crisis-from-space-the-al-massira-reservoir).*
 
-**Explore:** [the analysis](#measuring-the-crisis-from-space-the-al-massira-reservoir) ·
+**Explore:** **[how & why I made every choice](HOW-AND-WHY.md)** ·
+[the analysis](#measuring-the-crisis-from-space-the-al-massira-reservoir) ·
 [who depends on it](#who-depends-on-this-water--the-community-connection) ·
 [how it connects to research](REFERENCES.md) ·
 [narrative notebook](notebooks/morocco_water_stress.ipynb) ·
 a scrollytelling StoryMap version (`storymap/index.html`)
+
+> **[HOW-AND-WHY.md](HOW-AND-WHY.md)** is the heart of this repo — the reasoning behind
+> every decision, and an honest account of what the analysis can and cannot say. I'd
+> rather you understand the *why* than be impressed by the output.
 
 ## What the data shows
 
