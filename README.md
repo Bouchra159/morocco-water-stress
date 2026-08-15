@@ -70,6 +70,21 @@ in **QGIS** as a high-resolution print layout (`src/qgis_reservoir_layout.py`,
 project `qgis/al_massira_reservoir.qgz`) — the hero map at the top of this
 README, exported at 300 dpi as PNG and print-ready PDF.
 
+### Who depends on this water — the community connection
+
+A shrinking reservoir is a human story, not just a hydrological one. Al Massira is
+a key water source for the **Casablanca-Settat region (7.7 million people, 2024
+census)** and irrigates the **Doukkala plain (~96,000 ha of farmland)** through the
+Oum Er-Rbia system — and it is a **Ramsar wetland of international importance** for
+birds and biodiversity. This QGIS map connects the 91% water loss to the people and
+land that rely on it.
+
+![Who depends on Al Massira — community map](figures/map_communities_al_massira.png)
+
+Built in `src/qgis_community_map.py` from open census (HCP Morocco), irrigation
+(ORMVAD), and the Sentinel-2 reservoir extents; community figures are documented
+with sources in `data/raw/communities_al_massira.csv`.
+
 ### The basin in context
 
 ![Oum Er-Rbia basin — QGIS terrain map](figures/qgis_basin_map.png)

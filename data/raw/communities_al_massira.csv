@@ -1,0 +1,12 @@
+# Communities and farmland that depend on the Oum Er-Rbia / Al Massira water system.
+# City populations are 2014 RGPH (national census) urban-commune figures — the last
+# with city-level detail; the Casablanca-Settat REGION total is 7,688,967 (2024 RGPH).
+# Coordinates are approximate city centres (public). "role" notes the dependency.
+# Sources: HCP Morocco census (rgph2014.hcp.ma), ORMVAD (Doukkala irrigation),
+# Wikipedia Al Massira Dam (Ramsar site; irrigation of 100,000+ ha).
+name,lon,lat,population_2014,role
+Casablanca,-7.62,33.59,3359818,drinking water (Oum Er-Rbia system)
+Settat,-7.62,33.00,142250,regional centre near the dam
+El Jadida,-8.51,33.25,194934,coastal city / Doukkala gateway
+Berrechid,-7.59,33.27,136634,Casablanca-Settat plain
+Sidi Bennour,-8.43,32.65,55815,heart of the Doukkala irrigated plain
