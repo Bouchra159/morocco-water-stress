@@ -150,6 +150,7 @@ python src/build_map.py                # static + interactive basin maps
 python src/build_reservoir_figures.py  # Sentinel-2 Al Massira analysis (downloads imagery)
 python src/export_reservoir_vectors.py # vectorise water masks -> GeoPackage
 python src/fetch_dem.py                # Copernicus 30m DEM for shaded relief
+python src/build_method_figures.py     # teaching figures: NDWI/Otsu histogram, area vs volume
 python src/build_reservoir_gif.py      # animated timelapse GIF
 python src/build_storymap.py           # self-contained scrollytelling page
 

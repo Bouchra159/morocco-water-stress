@@ -35,6 +35,8 @@ deliberate, honest choice — and it has a limit I want to be clear about:
   therefore a *conservative* signal — the volume story is very likely worse, not better.
   I would rather understate and be right than overstate and be caught.
 
+![Why surface area falls slower than volume](figures/fig_method_area_volume.png)
+
 ## Why NDWI, and why an automatic (Otsu) threshold
 
 - Water absorbs near-infrared light strongly and reflects green. The **Normalized
@@ -48,6 +50,12 @@ deliberate, honest choice — and it has a limit I want to be clear about:
   each image's own histogram*. It adapts to the scene, and it is reproducible — no hand
   tuning, no eyeballing. Understanding *why fixed thresholds fail* is the whole reason I
   chose the adaptive one.
+
+Here is a real histogram from one of my own scenes. There are two clear populations —
+dry land on the left, water on the right — and Otsu puts the line in the valley between
+them, from the data itself:
+
+![Real NDWI histogram with the Otsu threshold](figures/fig_method_ndwi_otsu.png)
 
 ## Why dry-season images, and why the same tile every year
 
