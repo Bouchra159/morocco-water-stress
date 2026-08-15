@@ -45,6 +45,7 @@ IMG = {
     "percapita": load("fig1_percapita_decline.png", 1300, "JPEG", 88),
     "people": load("fig2_resource_vs_people.png", 1300, "JPEG", 88),
     "agri": load("fig3_agriculture_share.png", 1000, "JPEG", 88),
+    "journey": load("map_water_journey.png", 1700, "JPEG", 84),
 }
 
 # the animation must stay a GIF (embed raw bytes, not re-encoded)
@@ -182,6 +183,18 @@ footer h3{{color:var(--text); margin-top:0}}
   inseparable from farming, food, and rural livelihoods.</p>
   <div class="figure"><img src="{IMG['agri']}" alt="Agriculture uses 88 percent of Morocco's freshwater withdrawals" loading="lazy" style="max-width:520px;margin-inline:auto">
     <p class="cap" style="text-align:center">Source: World Bank Open Data.</p></div>
+</div></section>
+
+<section><div class="wrap reveal">
+  <p class="eyebrow">Where the water begins</p>
+  <h2>It all starts in the mountains</h2>
+  <p>Al&nbsp;Massira does not make water &mdash; it catches it. Every drop begins as winter
+  snow and rain on the <strong>Middle Atlas</strong>, drains down the Oum&nbsp;Er-Rbia, and
+  collects behind the dam. I built this shaded-relief map from open elevation data to show
+  that journey: the pale peaks rise above 3,000&nbsp;m, and the water runs downhill from
+  there to the reservoir, the cities, and the fields.</p>
+  <div class="figure"><img src="{IMG['journey']}" alt="Shaded-relief map of the Oum Er-Rbia headwaters, Middle Atlas terrain feeding the Al Massira reservoir" loading="lazy">
+    <p class="cap">Shaded relief + hypsometric tint from the Copernicus 30&nbsp;m DEM. Made in QGIS.</p></div>
 </div></section>
 
 <div class="band" style="background-image:url('{IMG['hero']}')">
