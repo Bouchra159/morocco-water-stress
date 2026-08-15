@@ -93,6 +93,15 @@ The terrain map is scripted with **PyQGIS** (`src/qgis_basin_map.py`) over
 OpenTopoMap; a lighter Python version (`src/build_map.py`) produces both a static
 map and an interactive `figures/oum_er_rbia_map.html`.
 
+## How this connects to real research
+
+The Al Massira decline is well documented in the peer-reviewed literature — including
+Moroccan and UM6P-led work on the Oum Er-Rbia basin. My ~91% surface-loss measurement
+**independently corroborates** those findings (e.g. a 2025 *Scientific Reports* study
+ranking Al Massira among the most-declined Mediterranean reservoirs) and follows the same
+NDWI approach as a 2023 study of the reservoir — but with a fully open, reproducible
+pipeline. See **[REFERENCES.md](REFERENCES.md)** for the sources and honest framing.
+
 ## Data sources (all public / open)
 
 | Data | Source | Licence |
