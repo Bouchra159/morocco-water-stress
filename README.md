@@ -8,12 +8,18 @@ Casablanca and the Doukkala irrigated plain.
 Everything here is built from **public, openly licensed data** and is fully
 reproducible from the scripts in `src/`.
 
-![Al Massira reservoir vanishing — QGIS map from Sentinel-2](figures/map_al_massira_layout.png)
+![Al Massira reservoir vanishing, 2017–2025, measured from Sentinel-2](figures/reservoir_timelapse.gif)
 
 > *The headline result: I measured the Al Massira reservoir's water surface from
-> Sentinel-2 imagery. The cyan line is its 2017 shoreline; the dark blue is all
-> that remained in 2024 — a 91% loss. High-resolution QGIS map; the analysis is
-> [below](#measuring-the-crisis-from-space-the-al-massira-reservoir).*
+> Sentinel-2 satellite imagery, every dry season from 2017 to 2025. It lost **91%**
+> of its open water — the animation above is nine real measurements, not an estimate.
+> Full analysis [below](#measuring-the-crisis-from-space-the-al-massira-reservoir).*
+
+**Explore:** [the analysis](#measuring-the-crisis-from-space-the-al-massira-reservoir) ·
+[who depends on it](#who-depends-on-this-water--the-community-connection) ·
+[how it connects to research](REFERENCES.md) ·
+[narrative notebook](notebooks/morocco_water_stress.ipynb) ·
+a scrollytelling StoryMap version (`storymap/index.html`)
 
 ## What the data shows
 
@@ -67,8 +73,11 @@ remote-sensing literature on Al Massira and other Mediterranean reservoirs.
 
 The water extents are vectorised (`src/export_reservoir_vectors.py`) and mapped
 in **QGIS** as a high-resolution print layout (`src/qgis_reservoir_layout.py`,
-project `qgis/al_massira_reservoir.qgz`) — the hero map at the top of this
-README, exported at 300 dpi as PNG and print-ready PDF.
+project `qgis/al_massira_reservoir.qgz`), exported at 300 dpi as PNG and
+print-ready PDF. The cyan line is the 2017 shoreline; the blue is what remained in
+2024, and the pale ground between them is exposed lakebed:
+
+![Al Massira 2017 shoreline vs 2024 water on satellite imagery — QGIS map](figures/map_al_massira_layout.png)
 
 ### Who depends on this water — the community connection
 
@@ -122,26 +131,35 @@ pipeline. See **[REFERENCES.md](REFERENCES.md)** for the sources and honest fram
 ```bash
 pip install -r requirements.txt
 
-python src/fetch_worldbank.py   # pull indicators from the World Bank API
-python src/fetch_geodata.py     # download open Morocco boundaries
-python src/build_figures.py     # national charts -> figures/
-python src/build_map.py         # static + interactive basin maps
+python src/fetch_worldbank.py          # pull indicators from the World Bank API
+python src/fetch_geodata.py            # download open Morocco boundaries
+python src/build_figures.py            # national charts -> figures/
+python src/build_map.py                # static + interactive basin maps
 python src/build_reservoir_figures.py  # Sentinel-2 Al Massira analysis (downloads imagery)
-# src/qgis_basin_map.py runs inside QGIS (Python console) for the terrain map
+python src/export_reservoir_vectors.py # vectorise water masks -> GeoPackage
+python src/build_reservoir_gif.py      # animated timelapse GIF
+python src/build_storymap.py           # self-contained scrollytelling page
+
+# these run inside QGIS (Plugins -> Python Console), not the plain venv:
+#   src/qgis_basin_map.py          terrain map of the basin
+#   src/qgis_reservoir_layout.py   high-res 2017-vs-2024 satellite map
+#   src/qgis_community_map.py       "who depends on Al Massira" map
 ```
 
 ## Repository layout
 
 ```
 morocco-water-stress/
-├── src/                 data fetch + figure/map builders
+├── src/                 data fetch, analysis, figure/map/GIF/story builders
 ├── data/
-│   ├── raw/             raw World Bank JSON + reported reservoir CSV
-│   ├── processed/       tidy indicator CSVs
-│   └── geo/             open Morocco boundaries (geoBoundaries)
-├── figures/            all charts + maps (PNG, interactive HTML)
-├── qgis/               QGIS project for the terrain map
-└── notebooks/          narrative walkthrough
+│   ├── raw/             World Bank JSON, reported reservoir + community CSVs
+│   ├── processed/       tidy indicator CSVs, reservoir areas + masks
+│   └── geo/             open boundaries + measured water GeoPackage
+├── figures/             all charts, maps, the timelapse GIF, PDFs
+├── qgis/                QGIS projects (terrain, reservoir, community maps)
+├── notebooks/           narrative walkthrough
+├── storymap/            self-contained scrollytelling StoryMap page
+└── REFERENCES.md        how this connects to peer-reviewed research
 ```
 
 ## Why this project
