@@ -177,7 +177,8 @@ to where it lives:
 
 | Competency | Where it's demonstrated |
 |---|---|
-| **QGIS** (and ArcGIS-equivalent) cartography | `src/qgis_*.py`, `qgis/*.qgz`, the maps in `figures/` |
+| **QGIS** cartography | `src/qgis_*.py`, `qgis/*.qgz`, the maps in `figures/` |
+| **ArcGIS Pro / arcpy** automation | `arcgis/build_arcgis_project.py` — loads the geodatabase + rasters into ArcGIS Pro |
 | **Coordinate systems** & spatial data | [METADATA.md](METADATA.md) — EPSG 4326 / 32629 / 32630 / 3857, with reprojection lineage |
 | Enter, edit & maintain **spatial + attribute data** | `src/build_geodatabase.py` → `gis/morocco_water.gpkg` (attributed layers) |
 | **Digitising** into a GIS database | reservoir shorelines vectorised from Sentinel-2 (`src/export_reservoir_vectors.py`) |
