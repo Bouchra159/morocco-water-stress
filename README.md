@@ -1,5 +1,10 @@
 # Running Dry: Mapping Water Stress in Morocco
 
+> I am from the drying south of Morocco, where families are leaving because the water is
+> running out. I built this to understand that — honestly, with open data — starting with
+> one reservoir I could measure from space, and ending at home
+> ([Where I'm from](#where-im-from)).
+
 Morocco is one of the most water-stressed countries in the world. This project
 uses open data to tell that story at two scales — the national trend since 1961,
 and a zoom into the **Oum Er-Rbia basin**, whose Al Massira reservoir supplies
@@ -113,6 +118,22 @@ Built in `src/qgis_water_journey.py` (terrain in `src/fetch_dem.py`). A lighter
 terrain map (`src/qgis_basin_map.py`, over OpenTopoMap) and an interactive folium
 version (`figures/oum_er_rbia_map.html`) are also included.
 
+## Where I'm from
+
+I did not start with Al Massira. I started at home. I am from the **Souss valley and the
+Anti-Atlas** of southern Morocco (Taroudant, in Souss-Massa) — a dry land between two
+mountain ranges that has grown drier in my lifetime. Where families once farmed, there is
+now only enough water to drink and to wash; the one tree that endures is the **argan**.
+When the water fails, people leave. The people losing their homes did least to warm the
+climate — which is why, to me, this is a question of **environmental justice**.
+
+Al Massira, in the north, is where I proved I could measure a water crisis honestly. The
+reason behind it is here, in the south.
+
+![Argan Country — the Souss valley and the Anti-Atlas](figures/map_argan_country.png)
+
+*Home ground, from the open Copernicus DEM — `src/build_home_map.py`.*
+
 ## How this connects to real research
 
 The Al Massira decline is well documented in the peer-reviewed literature — including
@@ -149,6 +170,8 @@ python src/build_figures.py            # national charts -> figures/
 python src/build_map.py                # static + interactive basin maps
 python src/build_reservoir_figures.py  # Sentinel-2 Al Massira analysis (downloads imagery)
 python src/export_reservoir_vectors.py # vectorise water masks -> GeoPackage
+python src/fetch_truecolor.py          # true-colour 2017/2024 crops for the swipe
+python src/build_home_map.py           # "Argan Country" home-region terrain map
 python src/fetch_dem.py                # Copernicus 30m DEM for shaded relief
 python src/build_method_figures.py     # teaching figures: NDWI/Otsu histogram, area vs volume
 python src/build_reservoir_gif.py      # animated timelapse GIF

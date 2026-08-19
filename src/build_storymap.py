@@ -46,6 +46,9 @@ IMG = {
     "people": load("fig2_resource_vs_people.png", 1300, "JPEG", 88),
     "agri": load("fig3_agriculture_share.png", 1000, "JPEG", 88),
     "journey": load("map_water_journey.png", 1700, "JPEG", 84),
+    "tc2017": load("truecolor_2017.jpg", 1400, "JPEG", 85),
+    "tc2024": load("truecolor_2024.jpg", 1400, "JPEG", 85),
+    "argan": load("map_argan_country.png", 1700, "JPEG", 86),
 }
 
 # the animation must stay a GIF (embed raw bytes, not re-encoded)
@@ -134,6 +137,23 @@ section{{padding:clamp(4.5rem,11vh,9rem) 0}}
   .reveal{{opacity:1; transform:none; transition:none}} html{{scroll-behavior:auto}}
   .hero__img{{transform:none}}
 }}
+
+/* before/after swipe */
+.swipe{{position:relative; margin:2.2rem 0 .4rem; border-radius:6px; overflow:hidden;
+  border:1px solid var(--line); box-shadow:0 24px 60px -30px rgba(0,0,0,.7); user-select:none; touch-action:none}}
+.swipe img{{display:block; width:100%}}
+.swipe__top{{position:absolute; inset:0}}
+.swipe__handle{{position:absolute; top:0; bottom:0; left:50%; width:2px; background:#fff;
+  box-shadow:0 0 0 1px rgba(0,0,0,.35); transform:translateX(-1px); pointer-events:none}}
+.swipe__handle::after{{content:"\\2194"; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%); width:38px; height:38px; border-radius:50%;
+  background:#fff; color:#111; font-size:19px; line-height:38px; text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.4)}}
+.swipe__tag{{position:absolute; top:12px; font-family:var(--mono); font-size:.72rem;
+  letter-spacing:.12em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.5);
+  padding:4px 9px; border-radius:4px; z-index:3}}
+.swipe__tag--l{{left:12px}} .swipe__tag--r{{right:12px}}
+.swipe__range{{position:absolute; left:0; bottom:0; width:100%; margin:0; opacity:0; height:100%; cursor:ew-resize}}
 
 footer{{background:#0d0b09; border-top:1px solid var(--line); padding:4rem 0 5rem; color:var(--muted)}}
 footer a{{color:var(--water); text-decoration:none; border-bottom:1px solid var(--line2)}}
@@ -231,6 +251,19 @@ footer h3{{color:var(--text); margin-top:0}}
     <p class="cap">Nine dry seasons of measured water-surface area.</p></div>
   <div class="figure"><img src="{IMG['sat']}" alt="High-resolution QGIS map of Al Massira: 2017 shoreline versus 2024 water over satellite imagery" loading="lazy">
     <p class="cap">The 2017 shoreline (cyan) over what was left in 2024 (blue). The pale ground between them is exposed lakebed. Made in QGIS.</p></div>
+
+  <h3>See it yourself: drag from 2017 to 2024</h3>
+  <p>This is the raw satellite view &mdash; no analysis, just the true colour of the land.
+  Drag the handle across and watch the dark water turn to bare, cracked lakebed.</p>
+  <div class="swipe" id="swipe">
+    <img src="{IMG['tc2024']}" alt="Al Massira in 2024, nearly empty (Sentinel-2 true colour)">
+    <div class="swipe__top" id="swipeTop"><img src="{IMG['tc2017']}" alt="Al Massira in 2017, full (Sentinel-2 true colour)"></div>
+    <div class="swipe__handle" id="swipeHandle"></div>
+    <span class="swipe__tag swipe__tag--l">2017 &middot; full</span>
+    <span class="swipe__tag swipe__tag--r">2024 &middot; empty</span>
+    <input class="swipe__range" id="swipeRange" type="range" min="0" max="100" value="50" aria-label="Reveal 2017 versus 2024">
+  </div>
+  <p class="cap">True-colour Sentinel-2, same footprint both years. Drag to compare.</p>
 </div></section>
 
 <section class="section--tint"><div class="wrap reveal">
@@ -245,6 +278,23 @@ footer h3{{color:var(--text); margin-top:0}}
     <p class="cap">Who depends on Al&nbsp;Massira. Population: HCP Morocco 2024 census. Irrigation: ORMVAD. Made in QGIS.</p></div>
   <p class="pull">This is why the map matters to me. It is not a foreign crisis on a
   screen. It is the water my own country runs on.</p>
+</div></section>
+
+<section><div class="wrap reveal">
+  <p class="eyebrow">Where I&rsquo;m from</p>
+  <h2>And where everyone goes</h2>
+  <p>I did not start caring about water in the north. I started caring about it at home, in
+  the <strong>south</strong> &mdash; the Souss valley and the Anti-Atlas, where I am from. It
+  is a dry land between two mountain ranges, and in my lifetime it has grown drier. Where
+  families once farmed, there is now only enough water to drink and to wash. The one tree that
+  still holds on is the argan, because it can live on almost nothing.</p>
+  <div class="figure"><img src="{IMG['argan']}" alt="Shaded-relief map of the Souss valley and the Anti-Atlas, the author's home region" loading="lazy">
+    <p class="cap">Home: the Souss valley between the High Atlas and the Anti-Atlas. Copernicus DEM, rendered in Python.</p></div>
+  <p>When the water fails, people do the one thing the land will no longer let them do: they
+  leave. That is the quiet question under all of this &mdash; not only how much water is left,
+  but <em>where everyone goes</em> when a place can no longer hold them. The people losing
+  their homes did the least to warm the climate. To me, that is what environmental justice
+  means: not an abstraction, but the difference between a family staying and a family leaving.</p>
 </div></section>
 
 <section><div class="wrap reveal">
@@ -303,6 +353,12 @@ footer h3{{color:var(--text); margin-top:0}}
 <script>
 const io=new IntersectionObserver((es)=>{{es.forEach(e=>{{if(e.isIntersecting){{e.target.classList.add('in');io.unobserve(e.target)}}}})}},{{threshold:.14}});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const _sr=document.getElementById('swipeRange');
+if(_sr){{
+  const _top=document.getElementById('swipeTop'), _h=document.getElementById('swipeHandle');
+  const _u=v=>{{_top.style.clipPath='inset(0 '+(100-v)+'% 0 0)'; _h.style.left=v+'%';}};
+  _sr.addEventListener('input',e=>_u(e.target.value)); _u(50);
+}}
 </script>
 """
 
