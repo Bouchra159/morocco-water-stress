@@ -49,6 +49,8 @@ IMG = {
     "tc2017": load("truecolor_2017.jpg", 1400, "JPEG", 85),
     "tc2024": load("truecolor_2024.jpg", 1400, "JPEG", 85),
     "argan": load("map_argan_country.png", 1700, "JPEG", 86),
+    "ndvichg": load("map_greenness_change.png", 1500, "JPEG", 86),
+    "landcover": load("map_landcover.png", 1500, "JPEG", 86),
 }
 
 # the animation must stay a GIF (embed raw bytes, not re-encoded)
@@ -295,6 +297,13 @@ footer h3{{color:var(--text); margin-top:0}}
   but <em>where everyone goes</em> when a place can no longer hold them. The people losing
   their homes did the least to warm the climate. To me, that is what environmental justice
   means: not an abstraction, but the difference between a family staying and a family leaving.</p>
+  <p>I do not only tell this story &mdash; I measure it. With the same open satellite data and
+  reproducible GIS I used for the reservoir, I mapped how the argan slopes have browned, and
+  classified the land cover of home.</p>
+  <div class="figure"><img src="{IMG['ndvichg']}" alt="NDVI vegetation-change map of the argan slopes, 2018 to 2024, over a terrain hillshade" loading="lazy">
+    <p class="cap">Vegetation change on the argan slopes (Sentinel-2 NDVI, 2018–2024) over a Copernicus-DEM hillshade. Brown = browner / drier.</p></div>
+  <div class="figure"><img src="{IMG['landcover']}" alt="Unsupervised land-cover classification near Taroudant from Sentinel-2" loading="lazy">
+    <p class="cap">Land cover near Taroudant, classified from Sentinel-2 (unsupervised K-means) — argan woodland and irrigated valley separating from bare soil and rock.</p></div>
 </div></section>
 
 <section><div class="wrap reveal">
