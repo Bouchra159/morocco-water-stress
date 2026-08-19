@@ -72,13 +72,17 @@ not the *trend*. The dry-season low is also the honest moment — it is when sca
   operational coverage. 2016 simply doesn't have reliable dry-season scenes here. That is a
   data limit I'm naming out loud — not a start date I picked to make the story worse.
 
-## Why I kept the 2025 recovery in
+## Why I kept the recovery in (and updated it to 2026)
 
-The reservoir partly refilled after the wetter 2024–25 winter — from ~9 to ~25 km². Leaving
-that out would have made a scarier chart and a dishonest one. It also *teaches* something
-real: the system responds to rain, which is exactly why the solutions section is about
-managing demand, not just praying for it. **Honesty and understanding are the same thing
-here.** A story that can't admit a good year can't be trusted about the bad ones.
+The reservoir did not just keep falling. After the 2024 low (~9 km²) it refilled — ~25 km²
+in 2025, and ~125 km² by August 2026, *above* its 2017 level, as record rains refilled
+Morocco's dams. Leaving that out to keep a scarier chart would have been dishonest, and it
+would have missed the real point: **Al Massira's story is not a straight decline, it is
+violent volatility** — drought to near-empty, then flood-year rebound. That whiplash, which
+a warming climate sharpens, is the actual water-security problem: you cannot run a country's
+supply on years that swing from 9 to 125 km². Extending the series to 2026 (rather than
+stopping at the dramatic 2024 low) is the honest choice — a story that can't admit a good
+year can't be trusted about the bad ones.
 
 ## Why I made it about people, not a reservoir
 

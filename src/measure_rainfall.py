@@ -23,7 +23,7 @@ PROCESSED = ROOT / "data" / "processed"
 FIG = ROOT / "figures"
 
 LAT, LON = 30.47, -8.88          # Taroudant, in the Souss valley
-START, END = 1990, 2024
+START, END = 1990, 2025
 POWER = "https://power.larc.nasa.gov/api/temporal/monthly/point"
 
 WATER = "#2a6f97"; CRISIS = "#b3261e"; INK = "#1a1a1a"; GREY = "#8a8a8a"

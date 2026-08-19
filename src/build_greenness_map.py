@@ -36,7 +36,7 @@ FIG = ROOT / "figures"
 
 AOI = mg.AOI                          # (-8.65, 30.05, -8.35, 30.35)
 RES = 0.0003                          # ~33 m grid, lat/lon
-Y0, Y1 = 2018, 2024
+Y0, Y1 = 2018, 2026
 
 
 def ndvi_on_grid(year: int, dst_transform, W: int, H: int) -> np.ndarray:

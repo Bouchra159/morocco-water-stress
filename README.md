@@ -25,8 +25,10 @@ elevation data, fully reproducible from the scripts in `src/`.
 ![Al Massira reservoir vanishing, 2017–2025, measured from Sentinel-2](figures/reservoir_timelapse.gif)
 
 > *The headline result: I measured the Al Massira reservoir's water surface from
-> Sentinel-2 satellite imagery, every dry season from 2017 to 2025. It lost **91%**
-> of its open water — the animation above is nine real measurements, not an estimate.
+> Sentinel-2 satellite imagery, every dry season from 2017 to 2026. It **crashed 91%** to
+> a near-empty low in 2024 after years of drought — then **rebounded past its 2017 level in
+> 2026** as record rains refilled Morocco's dams. Morocco's water runs in violent extremes;
+> the animation above is ten real measurements, not an estimate.
 > Full analysis [below](#measuring-the-crisis-from-space-the-al-massira-reservoir).*
 
 **Explore:** **[how & why I made every choice](HOW-AND-WHY.md)** ·
@@ -42,9 +44,10 @@ a scrollytelling StoryMap version (`storymap/index.html`)
 
 ## What the data shows
 
-- **Al Massira reservoir — which supplies Casablanca — lost 91% of its water
-  surface between 2017 and 2024**, measured directly from Sentinel-2 satellite
-  imagery (see [below](#measuring-the-crisis-from-space-the-al-massira-reservoir)).
+- **Al Massira reservoir — which supplies Casablanca — crashed 91% to a near-empty
+  low in 2024, then rebounded above its 2017 level by 2026**, measured directly from
+  Sentinel-2 — a whiplash of drought and flood-year recovery, not a simple decline
+  (see [below](#measuring-the-crisis-from-space-the-al-massira-reservoir)).
 - **Morocco crossed the international water-stress line (1,000 m³/person/year)
   around the year 2000.** Renewable internal freshwater fell from **2,431 m³ per
   person in 1961 to 777 m³ in 2022** — a 68% drop — and is now closer to the
@@ -74,8 +77,10 @@ surface area for every dry season from 2017 to 2025 (NDWI water index + an
 automatic Otsu threshold, cloud-masked with the scene classification band). The
 result is not a reported statistic — it is a measurement:
 
-**Al Massira's water surface fell from ~98 km² (2017) to ~9 km² (2024) — a 91%
-collapse — before a partial recovery to ~25 km² after the wetter 2024–25 winter.**
+**Al Massira's water surface crashed from ~98 km² (2017) to ~9 km² (2024) — a 91%
+collapse after years of drought — then rebounded to ~125 km² by August 2026, above its
+2017 level, as record 2025–26 rains refilled Morocco's dams. Water security here is about
+surviving that volatility, not reading a single downward line.**
 
 ![Al Massira reservoir shrinking, 2017–2025](figures/fig7_reservoir_masks_grid.png)
 

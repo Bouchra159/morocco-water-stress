@@ -231,32 +231,36 @@ footer h3{{color:var(--text); margin-top:0}}
 
 <section><div class="wrap reveal">
   <p class="eyebrow">The measurement</p>
-  <h2>Al Massira, vanishing</h2>
+  <h2>Al Massira: collapse, and comeback</h2>
   <p>Al&nbsp;Massira is Morocco&rsquo;s second-largest reservoir. It sits on the
   Oum&nbsp;Er-Rbia river and sends water to Casablanca and to the farms of the Doukkala
-  plain. I pulled every dry-season <strong>Sentinel-2</strong> image from 2017 to 2025,
-  mapped the open water with a spectral index (NDWI) and an automatic threshold, and
-  measured the surface area myself. No estimates &mdash; a measurement.</p>
-  <div class="figure"><img src="{IMG['gif']}" alt="Animated timelapse of the Al Massira reservoir shrinking from 2017 to 2025" loading="lazy">
-    <p class="cap">Nine dry seasons: the reservoir draining against the pale outline of its 2017 pool. Every frame is a real Sentinel-2 measurement.</p></div>
+  plain &mdash; and it is a <strong>Ramsar</strong> wetland of international importance. I
+  pulled every dry-season <strong>Sentinel-2</strong> image from 2017 to 2026, mapped the
+  open water with a spectral index (NDWI) and an automatic threshold, and measured the
+  surface area myself. No estimates &mdash; a measurement.</p>
+  <div class="figure"><img src="{IMG['gif']}" alt="Animated timelapse of the Al Massira reservoir from 2017 to 2026" loading="lazy">
+    <p class="cap">Ten dry seasons: the reservoir drains to almost nothing by 2024 &mdash; then refills. Every frame is a real Sentinel-2 measurement.</p></div>
   <div class="statrow">
     <div><div class="n" style="color:var(--water)">98 km&sup2;</div><div class="l">water surface in 2017</div></div>
-    <div><div class="n" style="color:var(--crisis)">9 km&sup2;</div><div class="l">what remained in 2024</div></div>
-    <div><div class="n" style="color:var(--earth)">Ramsar</div><div class="l">a wetland of international importance, drying out</div></div>
+    <div><div class="n" style="color:var(--crisis)">9 km&sup2;</div><div class="l">the 2024 drought low</div></div>
+    <div><div class="n" style="color:var(--water)">125 km&sup2;</div><div class="l">rebound by August 2026</div></div>
   </div>
-  <div class="figure"><img src="{IMG['grid']}" alt="Year by year satellite water masks of Al Massira reservoir shrinking from 2017 to 2025" loading="lazy">
-    <p class="cap">Water extent each dry season, measured from Sentinel-2. The reservoir shrinks before your eyes.</p></div>
+  <div class="figure"><img src="{IMG['grid']}" alt="Year by year satellite water masks of Al Massira reservoir, 2017 to 2026" loading="lazy">
+    <p class="cap">Water extent each dry season, measured from Sentinel-2 &mdash; watch it crash to almost nothing by 2024, then refill by 2026.</p></div>
   <p class="stat stat--crisis" style="margin-top:2.5rem">&minus;91%</p>
-  <p class="stat__cap">of Al&nbsp;Massira&rsquo;s water surface, lost between 2017 and 2024 &mdash; before a
-  partial recovery after the wetter 2024&ndash;25 winter. Honesty matters: the rains did come back, a little.</p>
-  <div class="figure"><img src="{IMG['series']}" alt="Time series of Al Massira water surface area, 2017 to 2025" loading="lazy">
-    <p class="cap">Nine dry seasons of measured water-surface area.</p></div>
+  <p class="stat__cap">the reservoir crashed 91% to a near-empty low in 2024 after years of drought &mdash;
+  then rebounded <em>past</em> its 2017 level by 2026, as record rains refilled Morocco&rsquo;s dams.
+  The real danger is not one downward line; it is the <strong>whiplash</strong> &mdash; planning a
+  country&rsquo;s water around feast-or-famine years that a warming climate makes more violent.</p>
+  <div class="figure"><img src="{IMG['series']}" alt="Time series of Al Massira water surface area, 2017 to 2026" loading="lazy">
+    <p class="cap">Ten dry seasons of measured water-surface area &mdash; collapse, then comeback.</p></div>
   <div class="figure"><img src="{IMG['sat']}" alt="High-resolution QGIS map of Al Massira: 2017 shoreline versus 2024 water over satellite imagery" loading="lazy">
     <p class="cap">The 2017 shoreline (cyan) over what was left in 2024 (blue). The pale ground between them is exposed lakebed. Made in QGIS.</p></div>
 
-  <h3>See it yourself: drag from 2017 to 2024</h3>
+  <h3>See the drought low: drag from 2017 to 2024</h3>
   <p>This is the raw satellite view &mdash; no analysis, just the true colour of the land.
-  Drag the handle across and watch the dark water turn to bare, cracked lakebed.</p>
+  Drag the handle across and watch the dark 2017 water turn to the bare, cracked lakebed of
+  the 2024 low. (The good news, measured above: by 2026 the rains had brought it back.)</p>
   <div class="swipe" id="swipe">
     <img src="{IMG['tc2024']}" alt="Al Massira in 2024, nearly empty (Sentinel-2 true colour)">
     <div class="swipe__top" id="swipeTop"><img src="{IMG['tc2017']}" alt="Al Massira in 2017, full (Sentinel-2 true colour)"></div>

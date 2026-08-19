@@ -51,7 +51,8 @@ def fig_timeseries(df: pd.DataFrame) -> None:
     ax.set_xlabel("Year")
     ax.set_ylabel("Water surface area (km²)")
     ax.set_ylim(0, df["water_area_km2"].max() * 1.15)
-    ax.set_title("Al Massira reservoir water surface area, 2017–2025 (Sentinel-2)")
+    ax.set_title(f"Al Massira reservoir water surface area, "
+                 f"{int(df['year'].min())}–{int(df['year'].max())} (Sentinel-2)")
     ax.legend()
     fig.tight_layout()
     fig.savefig(FIG / "fig6_reservoir_area_timeseries.png", dpi=150)
@@ -77,7 +78,7 @@ def fig_masks_grid(df: pd.DataFrame, masks: dict) -> None:
             s.set_edgecolor("#dddddd")
     for ax in axes[n:]:
         ax.axis("off")
-    fig.suptitle("Al Massira reservoir water extent, 2016–2025 (Sentinel-2)",
+    fig.suptitle(f"Al Massira reservoir water extent, {min(years)}–{max(years)} (Sentinel-2)",
                  fontsize=14, fontweight="bold", color=INK, y=1.01)
     fig.text(0.5, -0.01,
              "Blue = open water (NDWI + Otsu). Same footprint each year. "

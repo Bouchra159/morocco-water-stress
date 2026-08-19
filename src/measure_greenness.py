@@ -38,7 +38,7 @@ FIG = ROOT / "figures"
 STAC = "https://earth-search.aws.element84.com/v1/search"
 TILE = "MGRS-29RNP"
 AOI = (-8.65, 30.05, -8.35, 30.35)     # argan / Anti-Atlas slopes near Taroudant
-YEARS = list(range(2017, 2026))
+YEARS = list(range(2017, 2027))
 SCALE = 3                              # 10 m -> 30 m
 SCL_BAD = {3, 8, 9, 10}               # cloud shadow, cloud med/high, cirrus
 

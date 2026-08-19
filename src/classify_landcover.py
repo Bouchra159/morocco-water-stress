@@ -46,7 +46,7 @@ SCL_BAD = {3, 8, 9, 10}
 
 def best_scene():
     r = requests.post(STAC, json={"collections": ["sentinel-2-l2a"], "bbox": list(AOI),
-        "datetime": "2024-03-01T00:00:00Z/2024-05-31T23:59:59Z",
+        "datetime": "2026-03-01T00:00:00Z/2026-05-31T23:59:59Z",
         "query": {"eo:cloud_cover": {"lt": 8}, "grid:code": {"eq": TILE}}, "limit": 40},
         timeout=40).json()
     feats = [f for f in r["features"] if f["properties"].get("grid:code") == TILE]
@@ -145,7 +145,7 @@ def main():
     ax.legend(handles=legend, loc="lower left", fontsize=9, framealpha=0.9)
     ax.set_xlabel("Longitude"); ax.set_ylabel("Latitude")
     ax.set_title("Land-cover classification near Taroudant (Souss / argan area)\n"
-                 "Unsupervised K-means on Sentinel-2, spring 2024")
+                 "Unsupervised K-means on Sentinel-2, spring 2026")
     fig.tight_layout(); fig.savefig(FIG / "map_landcover.png", dpi=180); plt.close(fig)
     print("wrote figures/map_landcover.png")
 
