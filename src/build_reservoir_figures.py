@@ -44,35 +44,17 @@ def get_data(force: bool = False):
 
 
 def fig_timeseries(df: pd.DataFrame) -> None:
-    fig, ax = plt.subplots(figsize=(9, 5.2))
-    ax.fill_between(df["year"], df["water_area_km2"], color=CALM, alpha=0.15)
-    ax.plot(df["year"], df["water_area_km2"], color=CALM, lw=2.6,
-            marker="o", ms=5)
-
-    peak = df.loc[df["water_area_km2"].idxmax()]
-    trough = df.loc[df["water_area_km2"].idxmin()]
-    for row, dy, col in [(peak, 14, CALM), (trough, 14, CRISIS)]:
-        ax.annotate(f"{row['water_area_km2']:.0f} km²\n{int(row['year'])}",
-                    (row["year"], row["water_area_km2"]),
-                    textcoords="offset points", xytext=(0, dy),
-                    ha="center", fontsize=10, fontweight="bold", color=col)
-    drop = 100 * (1 - trough["water_area_km2"] / peak["water_area_km2"])
-    ax.text(0.98, 0.9, f"−{drop:.0f}% water surface",
-            transform=ax.transAxes, ha="right", fontsize=13,
-            fontweight="bold", color=CRISIS)
-
-    ax.set_title("Al Massira reservoir has almost vanished from space",
-                 fontsize=13, fontweight="bold", color=INK, loc="left")
+    plt.style.use("seaborn-v0_8-whitegrid")
+    fig, ax = plt.subplots(figsize=(9, 5))
+    ax.plot(df["year"], df["water_area_km2"], marker="o", color="tab:blue",
+            label="water surface area")
+    ax.set_xlabel("Year")
     ax.set_ylabel("Water surface area (km²)")
-    ax.set_ylim(0, df["water_area_km2"].max() * 1.2)
-    ax.grid(True, color="#eeeeee")
-    ax.set_axisbelow(True)
-    fig.text(0.125, -0.02,
-             "Measured from Sentinel-2 (NDWI + Otsu), dry-season scenes, tile 29SPR. "
-             "Data: Earth Search / Sentinel-2 L2A.",
-             fontsize=8, color=GREY)
+    ax.set_ylim(0, df["water_area_km2"].max() * 1.15)
+    ax.set_title("Al Massira reservoir water surface area, 2017–2025 (Sentinel-2)")
+    ax.legend()
     fig.tight_layout()
-    fig.savefig(FIG / "fig6_reservoir_area_timeseries.png", bbox_inches="tight")
+    fig.savefig(FIG / "fig6_reservoir_area_timeseries.png", dpi=150)
     plt.close(fig)
     print("wrote figures/fig6_reservoir_area_timeseries.png")
 
