@@ -16,6 +16,8 @@ elevation data, fully reproducible from the scripts in `src/`.
   community map of who depends on it, and shaded-relief + hypsometric terrain maps
 - 🎚️ **Interactive** — a before/after satellite swipe and a scrollytelling StoryMap
 - 🌿 **Spatial change analysis** — a vegetation-change (NDVI) map of the drying argan region
+- 🗄️ **Data management & QA/QC** — an attributed GeoPackage geodatabase (+ AutoCAD DXF), a
+  data dictionary, and an automated quality-control report
 
 *The maps are the work. A few plain charts appear only as supporting context.*
 
@@ -158,6 +160,25 @@ rain** than the 1990s (264 → 177 mm).
 supporting context — nine years is too short to prove a long-term trend on its own, which is
 exactly why the 35-year rainfall record is the real signal.*
 
+## GIS skills demonstrated
+
+Beyond the story, this repo is a portfolio of core GIS-technician competencies — each mapped
+to where it lives:
+
+| Competency | Where it's demonstrated |
+|---|---|
+| **QGIS** (and ArcGIS-equivalent) cartography | `src/qgis_*.py`, `qgis/*.qgz`, the maps in `figures/` |
+| **Coordinate systems** & spatial data | [METADATA.md](METADATA.md) — EPSG 4326 / 32629 / 32630 / 3857, with reprojection lineage |
+| Enter, edit & maintain **spatial + attribute data** | `src/build_geodatabase.py` → `gis/morocco_water.gpkg` (attributed layers) |
+| **Digitising** into a GIS database | reservoir shorelines vectorised from Sentinel-2 (`src/export_reservoir_vectors.py`) |
+| **QA/QC** & verifying accuracy / completeness | `src/qa_qc.py` → [QA_QC_REPORT.md](QA_QC_REPORT.md) — 21/21 checks pass |
+| Prepare **maps & cartographic outputs** | the QGIS + Python maps throughout |
+| Organise & maintain GIS **files / databases** | GeoPackage geodatabase, GeoTIFF, documented metadata |
+| **AutoCAD** interoperability | `gis/morocco_water.dxf` (DXF export) |
+| Attention to **detail & accuracy** | areas measured in UTM (not degrees); honest, documented limits in [HOW-AND-WHY.md](HOW-AND-WHY.md) |
+
+Reproduce: `python src/build_geodatabase.py && python src/qa_qc.py`
+
 ## How this connects to real research
 
 The Al Massira decline is well documented in the peer-reviewed literature — including
@@ -213,6 +234,8 @@ python src/build_home_map.py           # "Argan Country" home-region terrain map
 python src/measure_rainfall.py         # 35-yr rainfall trend near home (NASA POWER)
 python src/measure_greenness.py        # spring NDVI trend on the argan slopes (Sentinel-2)
 python src/build_greenness_map.py      # NDVI-change GIS map over a DEM hillshade
+python src/build_geodatabase.py        # attributed GeoPackage geodatabase (+ DXF)
+python src/qa_qc.py                    # QA/QC report on the geodatabase
 python src/fetch_dem.py                # Copernicus 30m DEM for shaded relief
 python src/build_method_figures.py     # teaching figures: NDWI/Otsu histogram, area vs volume
 python src/build_reservoir_gif.py      # animated timelapse GIF
