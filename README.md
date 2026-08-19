@@ -5,13 +5,19 @@
 > one reservoir I could measure from space, and ending at home
 > ([Where I'm from](#where-im-from)).
 
-Morocco is one of the most water-stressed countries in the world. This project
-uses open data to tell that story at two scales — the national trend since 1961,
-and a zoom into the **Oum Er-Rbia basin**, whose Al Massira reservoir supplies
-Casablanca and the Doukkala irrigated plain.
+Morocco is one of the most water-stressed countries in the world. This is a **GIS and
+remote-sensing project** — spatial analysis and cartography built from open satellite and
+elevation data, fully reproducible from the scripts in `src/`.
 
-Everything here is built from **public, openly licensed data** and is fully
-reproducible from the scripts in `src/`.
+**The GIS work in this repo:**
+- 🛰️ **Satellite measurement** — the Al Massira reservoir's water surface mapped from
+  Sentinel-2 every dry season, 2017–2025 (NDWI + Otsu), and vectorised to a GeoPackage
+- 🗺️ **Cartography (QGIS)** — the reservoir's 2017-vs-2024 extent over satellite imagery, a
+  community map of who depends on it, and shaded-relief + hypsometric terrain maps
+- 🎚️ **Interactive** — a before/after satellite swipe and a scrollytelling StoryMap
+- 🌿 **Spatial change analysis** — a vegetation-change (NDVI) map of the drying argan region
+
+*The maps are the work. A few plain charts appear only as supporting context.*
 
 ![Al Massira reservoir vanishing, 2017–2025, measured from Sentinel-2](figures/reservoir_timelapse.gif)
 
@@ -51,10 +57,7 @@ a scrollytelling StoryMap version (`storymap/index.html`)
 - **The drought is visible in the dams.** Reported national reservoir fill rates
   fell to around **23% in 2024**, down from ~31% in 2023 — the lowest in years.
 
-<p align="center">
-  <img src="figures/fig2_resource_vs_people.png" width="49%">
-  <img src="figures/fig3_agriculture_share.png" width="49%">
-</p>
+*(Plain charts of these national indicators are in [supporting context](#supporting-national-context) — but this is a spatial project, so the maps below are the real work.)*
 
 ## Measuring the crisis from space: the Al Massira reservoir
 
@@ -162,6 +165,20 @@ Moroccan and UM6P-led work on the Oum Er-Rbia basin. My ~91% surface-loss measur
 ranking Al Massira among the most-declined Mediterranean reservoirs) and follows the same
 NDWI approach as a 2023 study of the reservoir — but with a fully open, reproducible
 pipeline. See **[REFERENCES.md](REFERENCES.md)** for the sources and honest framing.
+
+## Supporting national context
+
+Plain charts of the national indicators (World Bank data), for reference only. These are
+background — the spatial analysis and maps above are the focus.
+
+<p align="center">
+  <img src="figures/fig1_percapita_decline.png" width="48%">
+  <img src="figures/fig2_resource_vs_people.png" width="48%">
+</p>
+<p align="center">
+  <img src="figures/fig3_agriculture_share.png" width="34%">
+  <img src="figures/fig4_reservoir_levels.png" width="48%">
+</p>
 
 ## Data sources (all public / open)
 
