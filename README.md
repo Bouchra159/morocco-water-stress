@@ -16,6 +16,7 @@ elevation data, fully reproducible from the scripts in `src/`.
   community map of who depends on it, and shaded-relief + hypsometric terrain maps
 - 🎚️ **Interactive** — a before/after satellite swipe and a scrollytelling StoryMap
 - 🌿 **Spatial change analysis** — a vegetation-change (NDVI) map of the drying argan region
+- 🧩 **Land-cover classification** — unsupervised K-means of Sentinel-2 into land-cover classes
 - 🗄️ **Data management & QA/QC** — an attributed GeoPackage geodatabase (+ AutoCAD DXF), a
   data dictionary, and an automated quality-control report
 
@@ -160,6 +161,15 @@ rain** than the 1990s (264 → 177 mm).
 supporting context — nine years is too short to prove a long-term trend on its own, which is
 exactly why the 35-year rainfall record is the real signal.*
 
+**Land cover, classified.** To see *what* is on the land, I ran an unsupervised **K-means
+classification** of a spring Sentinel-2 scene into land-cover classes. The argan woodland and
+irrigated valley vegetation separate cleanly from bare soil and rock — the green tracing the
+wadis and slopes. Output as a classified GeoTIFF (`src/classify_landcover.py`); labels are
+interpreted from the clusters' spectral signatures (an honest unsupervised classification,
+not a ground-truthed map).
+
+![Land-cover classification near Taroudant](figures/map_landcover.png)
+
 ## GIS skills demonstrated
 
 Beyond the story, this repo is a portfolio of core GIS-technician competencies — each mapped
@@ -171,6 +181,7 @@ to where it lives:
 | **Coordinate systems** & spatial data | [METADATA.md](METADATA.md) — EPSG 4326 / 32629 / 32630 / 3857, with reprojection lineage |
 | Enter, edit & maintain **spatial + attribute data** | `src/build_geodatabase.py` → `gis/morocco_water.gpkg` (attributed layers) |
 | **Digitising** into a GIS database | reservoir shorelines vectorised from Sentinel-2 (`src/export_reservoir_vectors.py`) |
+| **Remote-sensing classification** | `src/classify_landcover.py` → land-cover GeoTIFF + map |
 | **QA/QC** & verifying accuracy / completeness | `src/qa_qc.py` → [QA_QC_REPORT.md](QA_QC_REPORT.md) — 21/21 checks pass |
 | Prepare **maps & cartographic outputs** | the QGIS + Python maps throughout |
 | Organise & maintain GIS **files / databases** | GeoPackage geodatabase, GeoTIFF, documented metadata |
@@ -234,6 +245,7 @@ python src/build_home_map.py           # "Argan Country" home-region terrain map
 python src/measure_rainfall.py         # 35-yr rainfall trend near home (NASA POWER)
 python src/measure_greenness.py        # spring NDVI trend on the argan slopes (Sentinel-2)
 python src/build_greenness_map.py      # NDVI-change GIS map over a DEM hillshade
+python src/classify_landcover.py       # unsupervised land-cover classification (Sentinel-2)
 python src/build_geodatabase.py        # attributed GeoPackage geodatabase (+ DXF)
 python src/qa_qc.py                    # QA/QC report on the geodatabase
 python src/fetch_dem.py                # Copernicus 30m DEM for shaded relief
