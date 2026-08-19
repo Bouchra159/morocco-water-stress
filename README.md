@@ -134,6 +134,26 @@ reason behind it is here, in the south.
 
 *Home ground, from the open Copernicus DEM — `src/build_home_map.py`.*
 
+### Measuring the drying, honestly
+
+The map shows the land; these measurements show the change — and I am careful about what
+each can and cannot say.
+
+**Rainfall is the driver.** Over 35 years, annual rainfall near Taroudant has fallen about
+**17 mm per decade**, and the recent decade (2015+) averaged **~33% less rain** than the
+1990s (264 → 177 mm). This is the long, clear signal.
+
+![Annual rainfall near Taroudant, 1990–2024](figures/fig_rainfall_trend.png)
+
+**Greenness is the response — and it is noisy.** Spring vegetation (NDVI) on the argan
+slopes swings year to year with the rain; over nine years of Sentinel-2 it trends gently
+down, but nine years is too short to prove long-term change on its own. I show it *because*
+being honest about uncertainty is the point, not despite it.
+
+![Spring greenness (NDVI) near Taroudant, 2017–2025](figures/fig_greenness_trend.png)
+
+Built in `src/measure_rainfall.py` (NASA POWER) and `src/measure_greenness.py` (Sentinel-2).
+
 ## How this connects to real research
 
 The Al Massira decline is well documented in the peer-reviewed literature — including
@@ -172,6 +192,8 @@ python src/build_reservoir_figures.py  # Sentinel-2 Al Massira analysis (downloa
 python src/export_reservoir_vectors.py # vectorise water masks -> GeoPackage
 python src/fetch_truecolor.py          # true-colour 2017/2024 crops for the swipe
 python src/build_home_map.py           # "Argan Country" home-region terrain map
+python src/measure_rainfall.py         # 35-yr rainfall trend near home (NASA POWER)
+python src/measure_greenness.py        # spring NDVI trend on the argan slopes (Sentinel-2)
 python src/fetch_dem.py                # Copernicus 30m DEM for shaded relief
 python src/build_method_figures.py     # teaching figures: NDWI/Otsu histogram, area vs volume
 python src/build_reservoir_gif.py      # animated timelapse GIF
