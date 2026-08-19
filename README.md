@@ -137,25 +137,26 @@ reason behind it is here, in the south.
 
 *Home ground, from the open Copernicus DEM — `src/build_home_map.py`.*
 
-### Measuring the drying, honestly
+### Measuring the drying — a spatial view
 
-The map shows the land; these measurements show the change — and I am careful about what
-each can and cannot say.
+**Where the land browned.** I mapped the change in spring vegetation (Sentinel-2 NDVI)
+between 2018 and 2024 across the argan slopes, over a hillshade of the terrain. The browning
+(drier) concentrates in the western drainages; the signal is patchy and honest, not a
+uniform collapse. This is a multi-source GIS workflow — two years of NDVI reprojected from
+UTM to a common lat/lon grid, differenced into a GeoTIFF, and draped on a Copernicus-DEM
+hillshade, with scale bar, north arrow, and legend (`src/build_greenness_map.py`).
 
-**Rainfall is the driver.** Over 35 years, annual rainfall near Taroudant has fallen about
-**17 mm per decade**, and the recent decade (2015+) averaged **~33% less rain** than the
-1990s (264 → 177 mm). This is the long, clear signal.
+![NDVI change on the argan slopes near Taroudant, 2018–2024](figures/map_greenness_change.png)
+
+**Rainfall is the driver, over a longer record.** Annual rainfall near Taroudant has fallen
+about **17 mm/decade** over 35 years, and the recent decade (2015+) averaged **~33% less
+rain** than the 1990s (264 → 177 mm).
 
 ![Annual rainfall near Taroudant, 1990–2024](figures/fig_rainfall_trend.png)
 
-**Greenness is the response — and it is noisy.** Spring vegetation (NDVI) on the argan
-slopes swings year to year with the rain; over nine years of Sentinel-2 it trends gently
-down, but nine years is too short to prove long-term change on its own. I show it *because*
-being honest about uncertainty is the point, not despite it.
-
-![Spring greenness (NDVI) near Taroudant, 2017–2025](figures/fig_greenness_trend.png)
-
-Built in `src/measure_rainfall.py` (NASA POWER) and `src/measure_greenness.py` (Sentinel-2).
+*A simple year-by-year NDVI line (`figures/fig_greenness_trend.png`) is included as
+supporting context — nine years is too short to prove a long-term trend on its own, which is
+exactly why the 35-year rainfall record is the real signal.*
 
 ## How this connects to real research
 
@@ -211,6 +212,7 @@ python src/fetch_truecolor.py          # true-colour 2017/2024 crops for the swi
 python src/build_home_map.py           # "Argan Country" home-region terrain map
 python src/measure_rainfall.py         # 35-yr rainfall trend near home (NASA POWER)
 python src/measure_greenness.py        # spring NDVI trend on the argan slopes (Sentinel-2)
+python src/build_greenness_map.py      # NDVI-change GIS map over a DEM hillshade
 python src/fetch_dem.py                # Copernicus 30m DEM for shaded relief
 python src/build_method_figures.py     # teaching figures: NDWI/Otsu histogram, area vs volume
 python src/build_reservoir_gif.py      # animated timelapse GIF
