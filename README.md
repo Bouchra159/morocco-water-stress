@@ -157,14 +157,22 @@ hillshade, with scale bar, north arrow, and legend (`src/build_greenness_map.py`
 ![NDVI change on the argan slopes near Taroudant, 2018–2024](figures/map_greenness_change.png)
 
 **Rainfall is the driver, over a longer record.** Annual rainfall near Taroudant has fallen
-about **17 mm/decade** over 35 years, and the recent decade (2015+) averaged **~33% less
-rain** than the 1990s (264 → 177 mm).
+about **17 mm/decade** over 35 years, and the recent decade (2015+) averaged **~31% less
+rain** than the 1990s (264 → 181 mm).
 
-![Annual rainfall near Taroudant, 1990–2024](figures/fig_rainfall_trend.png)
+![Annual rainfall near Taroudant, 1990–2025](figures/fig_rainfall_trend.png)
 
-*A simple year-by-year NDVI line (`figures/fig_greenness_trend.png`) is included as
-supporting context — nine years is too short to prove a long-term trend on its own, which is
-exactly why the 35-year rainfall record is the real signal.*
+**And 25 years of vegetation, from MODIS.** Sentinel-2 only reaches back to 2015, so to ask
+whether the land itself is drying over the long run I pulled a **25-year MODIS NDVI record
+(2000–2026)** for the argan slopes. It shows a modest downward trend, a clear decline of the
+5-year average through the 2015–2024 drought (~0.19 → ~0.145), then a sharp rebound in the wet
+2026 — greenness here is real but rainfall-driven and resilient, not collapsing. This is the
+honest long answer the 9-year Sentinel-2 record alone couldn't give.
+
+![25-year MODIS NDVI trend on the argan slopes, 2000–2026](figures/fig_modis_ndvi_trend.png)
+
+Built in `src/measure_modis_ndvi.py` (ORNL MODIS Web Service — no login, so anyone can rerun
+it; NASA's `earthaccess` library is the scalable cloud-native alternative I evaluated).
 
 **Land cover, classified.** To see *what* is on the land, I ran an unsupervised **K-means
 classification** of a spring Sentinel-2 scene into land-cover classes. The argan woodland and
@@ -250,6 +258,7 @@ python src/fetch_truecolor.py          # true-colour 2017/2024 crops for the swi
 python src/build_home_map.py           # "Argan Country" home-region terrain map
 python src/measure_rainfall.py         # 35-yr rainfall trend near home (NASA POWER)
 python src/measure_greenness.py        # spring NDVI trend on the argan slopes (Sentinel-2)
+python src/measure_modis_ndvi.py       # 25-year MODIS NDVI record 2000-2026 (ORNL, no login)
 python src/build_greenness_map.py      # NDVI-change GIS map over a DEM hillshade
 python src/classify_landcover.py       # unsupervised land-cover classification (Sentinel-2)
 python src/build_geodatabase.py        # attributed GeoPackage geodatabase (+ DXF)
