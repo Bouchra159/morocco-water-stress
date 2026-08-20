@@ -196,6 +196,8 @@ to where it lives:
 | Enter, edit & maintain **spatial + attribute data** | `src/build_geodatabase.py` → `gis/morocco_water.gpkg` (attributed layers) |
 | **Digitising** into a GIS database | reservoir shorelines vectorised from Sentinel-2 (`src/export_reservoir_vectors.py`) |
 | **Remote-sensing classification** | `src/classify_landcover.py` → land-cover GeoTIFF + map |
+| **Multi-temporal / time-series RS** | 25-year MODIS NDVI + 10-year Sentinel-2 reservoir series (`src/measure_modis_ndvi.py`, `src/measure_reservoir.py`) |
+| **Web GIS / interactive mapping** | leafmap interactive map (`src/build_interactive_map.py` → `storymap/interactive_map.html`) |
 | **QA/QC** & verifying accuracy / completeness | `src/qa_qc.py` → [QA_QC_REPORT.md](QA_QC_REPORT.md) — 21/21 checks pass |
 | Prepare **maps & cartographic outputs** | the QGIS + Python maps throughout |
 | Organise & maintain GIS **files / databases** | GeoPackage geodatabase, GeoTIFF, documented metadata |
