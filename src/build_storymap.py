@@ -51,6 +51,7 @@ IMG = {
     "argan": load("map_argan_country.png", 1700, "JPEG", 86),
     "ndvichg": load("map_greenness_change.png", 1500, "JPEG", 86),
     "landcover": load("map_landcover.png", 1500, "JPEG", 86),
+    "modis": load("fig_modis_ndvi_trend.png", 1400, "JPEG", 88),
 }
 
 # the animation must stay a GIF (embed raw bytes, not re-encoded)
@@ -308,6 +309,13 @@ footer h3{{color:var(--text); margin-top:0}}
     <p class="cap">Vegetation change on the argan slopes (Sentinel-2 NDVI, 2018–2024) over a Copernicus-DEM hillshade. Brown = browner / drier.</p></div>
   <div class="figure"><img src="{IMG['landcover']}" alt="Unsupervised land-cover classification near Taroudant from Sentinel-2" loading="lazy">
     <p class="cap">Land cover near Taroudant, classified from Sentinel-2 (unsupervised K-means) — argan woodland and irrigated valley separating from bare soil and rock.</p></div>
+  <p>And to answer the hardest question honestly &mdash; <em>is the land really drying, or is
+  this just a run of dry years?</em> &mdash; I went back <strong>25 years</strong> with MODIS.
+  The greenness trends gently down, dips through the 2015&ndash;2024 drought, then rebounds in
+  the wet 2026. The land is stressed and rainfall-driven, not vanishing. Telling it that way,
+  with all its nuance, matters to me more than a scarier straight line would.</p>
+  <div class="figure"><img src="{IMG['modis']}" alt="25-year MODIS NDVI trend on the argan slopes, 2000 to 2026" loading="lazy">
+    <p class="cap">Vegetation greenness on the argan slopes, 2000–2026 (MODIS). A modest decline with big rainfall-driven swings.</p></div>
 </div></section>
 
 <section><div class="wrap reveal">
