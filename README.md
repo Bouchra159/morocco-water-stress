@@ -73,7 +73,7 @@ reservoir — and supplies drinking water to **Casablanca** and irrigation to th
 **Doukkala plain**. So I measured it directly.
 
 Using **Sentinel-2** satellite imagery, I computed the reservoir's open-water
-surface area for every dry season from 2017 to 2025 (NDWI water index + an
+surface area for every dry season from 2017 to 2026 (NDWI water index + an
 automatic Otsu threshold, cloud-masked with the scene classification band). The
 result is not a reported statistic — it is a measurement:
 

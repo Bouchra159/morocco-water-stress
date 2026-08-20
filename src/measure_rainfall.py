@@ -58,13 +58,13 @@ def main() -> None:
     colors = ["tab:red" if v < 0.7 * mean else "tab:blue" for v in df["rainfall_mm"]]
     ax.bar(df["year"], df["rainfall_mm"], color=colors, label="annual rainfall")
     ax.axhline(mean, color="gray", linestyle="--", linewidth=1,
-               label=f"1990–2024 average ({mean:.0f} mm)")
+               label=f"{START}–{END} average ({mean:.0f} mm)")
     ax.plot(df["year"], np.poly1d(z)(df["year"]), color="black", linewidth=1.5,
             label=f"trend: {z[0]*10:+.0f} mm/decade")
     ax.plot(df["year"], roll, color="orange", linewidth=2, label="5-year average")
     ax.set_xlabel("Year")
     ax.set_ylabel("Annual rainfall (mm)")
-    ax.set_title("Annual rainfall near Taroudant, 1990–2024 (NASA POWER)")
+    ax.set_title(f"Annual rainfall near Taroudant, {START}–{END} (NASA POWER)")
     ax.legend()
     fig.tight_layout(); fig.savefig(FIG / "fig_rainfall_trend.png", dpi=150); plt.close(fig)
 
