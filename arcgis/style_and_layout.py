@@ -1,10 +1,13 @@
 """
 style_and_layout.py  (run inside ArcGIS Pro's Python window / Notebook)
-Give every layer real, aesthetic cartography — no more default squares — then
-build and export a finished layout. Robust: each step is independent, so styling
-still applies even if the layout step has trouble.
+Complete, presentation-quality cartography for the Morocco_Water map:
+  - real layer names (not file names)
+  - aesthetic symbology (no default squares)
+  - a fully labelled land-cover legend (named classes, not "Value 0,1,2...")
+  - reservoir shown as 2017 shoreline vs 2024 water
+  - a finished layout: title, subtitle, legend, scale bar, north arrow, credits
 
-Run after build_arcgis_project.py, same map:
+Every step is independent (try/except) so partial success is fine. Run with:
   exec(open(r"C:\\Users\\BOUCHRA\\Projects\\morocco-water-stress\\arcgis\\style_and_layout.py").read())
 """
 import os
@@ -15,6 +18,14 @@ OUT_PNG = os.path.join(REPO, "figures", "arcgis_al_massira_layout.png")
 
 aprx = arcpy.mp.ArcGISProject("CURRENT")
 m = aprx.activeMap or aprx.listMaps()[0]
+
+# land-cover classes: raster Value -> (label, RGB)   (order from classify_landcover.py)
+LC = {0: ("Irrigated / dense vegetation", [26, 122, 58]),
+      1: ("Argan woodland / shrub", [123, 160, 90]),
+      2: ("Sparse vegetation", [205, 216, 154]),
+      3: ("Bare soil", [217, 185, 138]),
+      4: ("Rock / mountain", [154, 138, 122]),
+      5: ("Other / mixed", [176, 160, 144])}
 
 
 def get(prefix):
@@ -32,9 +43,13 @@ def first_ramp(names):
     return None
 
 
-# ---------- POINTS: fix the squares -> nice markers ----------
-def style_points(prefix, gallery, rgb, size, outline_w=0.5):
-    l = get(prefix)
+# grab references up front (so renaming later doesn't break lookups)
+res, dams, comm = get("reservoirs"), get("dams"), get("communities")
+ndvi, landc = get("ndvi_change"), get("landcover")
+
+
+# ---------------- points: fix squares -> clean markers ----------------
+def style_points(l, gallery, rgb, size):
     if not l:
         return
     try:
@@ -42,26 +57,25 @@ def style_points(prefix, gallery, rgb, size, outline_w=0.5):
         try:
             sym.renderer.symbol.applySymbolFromGallery(gallery)
         except Exception as e:
-            print("  (gallery symbol skipped:", e, ")")
+            print("  gallery skipped:", e)
         sym.renderer.symbol.color = {"RGB": rgb}
         sym.renderer.symbol.size = size
         try:
             sym.renderer.symbol.outlineColor = {"RGB": [255, 255, 255, 100]}
-            sym.renderer.symbol.outlineWidth = outline_w
+            sym.renderer.symbol.outlineWidth = 0.5
         except Exception:
             pass
         l.symbology = sym
         print("styled points:", l.name)
     except Exception as e:
-        print("point style error", prefix, ":", e)
+        print("point style error:", e)
 
 
-style_points("communities", "Circle 3", [30, 30, 30, 100], 8)
-style_points("dams", "Triangle 3", [214, 39, 40, 100], 13)
+style_points(comm, "Circle 3", [30, 30, 30, 100], 8)
+style_points(dams, "Triangle 3", [214, 39, 40, 100], 13)
 
 
-# ---------- RESERVOIRS: 2017 shoreline vs 2024 water ----------
-res = get("reservoirs")
+# ---------------- reservoir: 2017 shoreline vs 2024 water ----------------
 if res:
     try:
         sym = res.symbology
@@ -81,16 +95,15 @@ if res:
                     itm.symbol.outlineWidth = 0.4
                     itm.label = "2024 water (drought low)"
         res.symbology = sym
-        print("styled reservoirs (2017 vs 2024)")
+        print("styled reservoir (2017 vs 2024)")
     except Exception as e:
         print("reservoir style error:", e)
 
 
-# ---------- RASTERS: meaningful colour, not grey squares ----------
-lyr = get("ndvi_change")
-if lyr:
+# ---------------- NDVI change raster ----------------
+if ndvi:
     try:
-        sym = lyr.symbology
+        sym = ndvi.symbology
         if sym.colorizer.type != "RasterStretchColorizer":
             sym.updateColorizer("RasterStretchColorizer")
         sym.colorizer.stretchType = "PercentClip"
@@ -98,28 +111,49 @@ if lyr:
                            "Red-Green (Continuous)"])
         if ramp:
             sym.colorizer.colorRamp = ramp
-        lyr.symbology = sym
-        print("styled ndvi_change raster")
+        ndvi.symbology = sym
+        print("styled NDVI change raster")
     except Exception as e:
         print("ndvi raster error:", e)
 
-lyr = get("landcover")
-if lyr:
+
+# ---------------- land cover: named classes + colours ----------------
+if landc:
     try:
-        sym = lyr.symbology
+        sym = landc.symbology
         if sym.colorizer.type != "RasterUniqueValueColorizer":
             sym.updateColorizer("RasterUniqueValueColorizer")
         sym.colorizer.field = "Value"
-        ramp = first_ramp(["Muted Pastels", "Bold", "Basic Random"])
-        if ramp:
-            sym.colorizer.colorRamp = ramp
-        lyr.symbology = sym
-        print("styled landcover raster")
+        for grp in sym.colorizer.groups:
+            for itm in grp.items:
+                try:
+                    v = int(float(itm.values[0]))
+                except Exception:
+                    continue
+                if v in LC:
+                    itm.label = LC[v][0]
+                    itm.color = {"RGB": LC[v][1] + [100]}
+        landc.symbology = sym
+        print("styled land cover (named classes)")
     except Exception as e:
         print("landcover raster error:", e)
 
 
-# ---------- zoom the map view to the reservoir ----------
+# ---------------- real layer names (do this last) ----------------
+for lyr, name in [(res, "Al Massira reservoir (2017 vs 2024)"),
+                  (dams, "Major dams"),
+                  (comm, "Communities served"),
+                  (ndvi, "Vegetation change 2018\u20132026 (NDVI)"),
+                  (landc, "Land cover (Sentinel-2, 2026)")]:
+    if lyr:
+        try:
+            lyr.name = name
+        except Exception as e:
+            print("rename skipped:", e)
+print("renamed layers")
+
+
+# ---------------- zoom to the reservoir ----------------
 try:
     view = aprx.activeView
     if res and view and hasattr(view, "camera"):
@@ -129,7 +163,7 @@ except Exception as e:
     print("zoom skipped:", e)
 
 
-# ---------- layout + export (best effort) ----------
+# ---------------- finished layout ----------------
 try:
     for old in aprx.listLayouts("Al Massira*"):
         aprx.deleteItem(old)
@@ -138,26 +172,36 @@ except Exception:
 try:
     lyt = aprx.createLayout(11, 8.5, "INCH", "Al Massira Layout")
     mf = lyt.createMapFrame(
-        arcpy.Polygon(arcpy.Array([arcpy.Point(0.4, 0.4), arcpy.Point(0.4, 8.1),
-                                   arcpy.Point(7.7, 8.1), arcpy.Point(7.7, 0.4)])), m, "MainMap")
+        arcpy.Polygon(arcpy.Array([arcpy.Point(0.35, 0.35), arcpy.Point(0.35, 7.7),
+                                   arcpy.Point(7.6, 7.7), arcpy.Point(7.6, 0.35)])), m, "MainMap")
     if res:
         mf.camera.setExtent(mf.getLayerExtent(res, False, True))
 
-    def surround(kind, pt, cat):
-        items = aprx.listStyleItems("ArcGIS 2D", cat)
+    def surround(kind, pt, cat, name):
         try:
-            lyt.createMapSurroundElement(pt, kind, mf, items[0] if items else None,
-                                         kind.title().replace("_", " "))
+            items = aprx.listStyleItems("ArcGIS 2D", cat)
+            lyt.createMapSurroundElement(pt, kind, mf, items[0] if items else None, name)
+            print("  added", name)
         except Exception as e:
-            print("  (", kind, "skipped:", e, ")")
+            print("  ", kind, "skipped:", e)
 
-    surround("LEGEND", arcpy.Point(8.0, 6.2), "LEGEND")
-    surround("SCALE_BAR", arcpy.Point(0.6, 0.55), "Scale_bar")
-    surround("NORTH_ARROW", arcpy.Point(10.3, 7.6), "North_Arrow")
+    surround("LEGEND", arcpy.Point(7.8, 5.6), "LEGEND", "Legend")
+    surround("SCALE_BAR", arcpy.Point(0.55, 0.5), "Scale_bar", "Scale Bar")
+    surround("NORTH_ARROW", arcpy.Point(10.4, 7.5), "North_Arrow", "North Arrow")
 
-    ttl = lyt.createTextElement(arcpy.Point(0.4, 8.2),
-                                "Al Massira Reservoir & the Oum Er-Rbia \u2014 a GIS analysis")
-    ttl.textSize = 20
+    def text(pt, s, size, bold=False):
+        try:
+            t = lyt.createTextElement(pt, s)
+            t.textSize = size
+            return t
+        except Exception as e:
+            print("  text skipped:", e)
+
+    text(arcpy.Point(0.35, 8.15), "Al Massira Reservoir & the Oum Er-Rbia Basin", 22)
+    text(arcpy.Point(0.35, 7.85), "Satellite water-mapping, land cover and the communities that depend on it", 12)
+    text(arcpy.Point(0.35, 0.18),
+         "Data: Sentinel-2 (Copernicus), Copernicus DEM, HCP census. Analysis & cartography: B. Daddaoui, 2026.", 8)
+
     lyt.exportToPNG(OUT_PNG, resolution=200)
     print("exported layout ->", OUT_PNG)
 except Exception as e:
