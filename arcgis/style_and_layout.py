@@ -28,9 +28,10 @@ LC = {0: ("Irrigated / dense vegetation", [26, 122, 58]),
       5: ("Other / mixed", [176, 160, 144])}
 
 
-def get(prefix):
+def get(key):
+    # match the key anywhere in the layer name (handles "main.reservoirs", renamed layers)
     for l in m.listLayers():
-        if l.name.lower().startswith(prefix):
+        if key in l.name.lower():
             return l
     return None
 
@@ -189,18 +190,24 @@ try:
     surround("SCALE_BAR", arcpy.Point(0.55, 0.5), "Scale_bar", "Scale Bar")
     surround("NORTH_ARROW", arcpy.Point(10.4, 7.5), "North_Arrow", "North Arrow")
 
-    def text(pt, s, size, bold=False):
-        try:
-            t = lyt.createTextElement(pt, s)
-            t.textSize = size
-            return t
-        except Exception as e:
-            print("  text skipped:", e)
-
-    text(arcpy.Point(0.35, 8.15), "Al Massira Reservoir & the Oum Er-Rbia Basin", 22)
-    text(arcpy.Point(0.35, 7.85), "Satellite water-mapping, land cover and the communities that depend on it", 12)
-    text(arcpy.Point(0.35, 0.18),
-         "Data: Sentinel-2 (Copernicus), Copernicus DEM, HCP census. Analysis & cartography: B. Daddaoui, 2026.", 8)
+    # title / subtitle / credits via CIM (works without createTextElement)
+    try:
+        def _txt(s, x, y, h):
+            return {"type": "CIMGraphicElement", "name": s[:24], "anchor": "BottomLeftCorner",
+                    "graphic": {"type": "CIMTextGraphic", "text": s, "shape": {"x": x, "y": y},
+                                "symbol": {"type": "CIMSymbolReference", "symbol": {
+                                    "type": "CIMTextSymbol", "fontFamilyName": "Tahoma", "height": h,
+                                    "symbol": {"type": "CIMPolygonSymbol", "symbolLayers": [
+                                        {"type": "CIMSolidFill", "enable": True,
+                                         "color": {"type": "CIMRGBColor", "values": [30, 30, 30, 100]}}]}}}}}
+        cim = lyt.getDefinition("V3")
+        cim.elements.append(_txt("Al Massira Reservoir & the Oum Er-Rbia Basin", 0.35, 8.15, 22))
+        cim.elements.append(_txt("Satellite water-mapping, land cover, and the communities that depend on it", 0.35, 7.88, 12))
+        cim.elements.append(_txt("Data: Sentinel-2 (Copernicus), Copernicus DEM, HCP census. Cartography: B. Daddaoui, 2026.", 0.35, 0.15, 8))
+        lyt.setDefinition(cim)
+        print("added title / subtitle / credits")
+    except Exception as e:
+        print("  titles skipped:", e)
 
     lyt.exportToPNG(OUT_PNG, resolution=200)
     print("exported layout ->", OUT_PNG)
