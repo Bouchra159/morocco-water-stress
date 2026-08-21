@@ -143,18 +143,18 @@ def layout_and_export(proj, order):
     sb.setLinkedMap(m)
     sb.setUnits(QgsUnitTypes.DistanceKilometers)
     sb.setUnitLabel("km")
-    sb.setNumberOfSegments(4)
+    sb.setNumberOfSegments(3)
     sb.setNumberOfSegmentsLeft(0)
     sb.setUnitsPerSegment(2)
     sb.setFont(QFont("Arial", 9))
     sb.update()
-    sb.attemptMove(QgsLayoutPoint(312, 248, MM))
+    sb.attemptMove(QgsLayoutPoint(312, 250, MM))
     layout.addLayoutItem(sb)
 
     na = QgsLayoutItemPicture(layout)
     na.setPicturePath(os.path.join(QgsApplication.pkgDataPath(), "svg", "arrows", "NorthArrow_02.svg"))
-    na.attemptResize(QgsLayoutSize(20, 20, MM))
-    na.attemptMove(QgsLayoutPoint(380, 238, MM))
+    na.attemptResize(QgsLayoutSize(16, 16, MM))
+    na.attemptMove(QgsLayoutPoint(390, 244, MM))
     layout.addLayoutItem(na)
 
     label("Method: NDWI + Otsu on Sentinel-2 L2A (dry-season), cloud-masked with SCL.  "
