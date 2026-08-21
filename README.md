@@ -115,6 +115,19 @@ Built in `src/qgis_community_map.py` from open census (HCP Morocco), irrigation
 (ORMVAD), and the Sentinel-2 reservoir extents; community figures are documented
 with sources in `data/raw/communities_al_massira.csv`.
 
+### Following the water to the fields — Doukkala crop stress
+
+Al Massira exists to irrigate the **Doukkala plain (~96,000 ha)** — so did the reservoir's
+crash actually reach the crops? I measured crop moisture (Sentinel-2 **NDMI**) on the Doukkala
+fields and found they were moisture-stressed through the drought (2019–2025) and recovered
+strongly in 2026 — tracking the dam. This QGIS map shows the recovery (2024→2026) across the
+irrigated plain; the green is the fields coming back after the rains returned.
+
+![Crop water stress recovery on the Doukkala plain — QGIS](figures/map_qgis_crop_stress.png)
+
+Built in `src/measure_crop_stress.py` (Sentinel-2 NDMI time series) and `src/qgis_crop_stress.py`
+(a professional QGIS print layout). This closes the loop: **reservoir → farmland → food.**
+
 ### The physical story: where the water comes from
 
 Al Massira does not make its own water — it catches it. This shaded-relief map uses
@@ -206,6 +219,24 @@ to where it lives:
 
 Reproduce: `python src/build_geodatabase.py && python src/qa_qc.py`
 
+## Does it all hang together? (cross-validation)
+
+Four *independent* measurements — a reservoir, rainfall, crop moisture, and long-term
+vegetation — all move together. When independent datasets agree, that is how you know the
+story is real and not cherry-picked:
+
+| Signal | Drought (2017 → 2024) | Recovery (2025–26) | Source |
+|--------|----------------------|--------------------|--------|
+| Reservoir surface | 98 → **9 km²** (−91%) | → **125 km²** (2026) | Sentinel-2 NDWI |
+| Rainfall near Taroudant | 2015+ decade ~31% below 1990s | 2025–26 anomalously wet | NASA POWER |
+| Doukkala crop moisture | stressed (negative NDMI) | **+0.24** in 2026 | Sentinel-2 NDMI |
+| Argan vegetation (25 yr) | 5-yr avg dips through 2015–24 | rebounds in 2026 | MODIS NDVI |
+
+The honest reading is **not** "Morocco is simply drying up." It is **violent volatility** — a
+drying long-term baseline, a brutal multi-year drought, and a sharp wet-year recovery. Every
+dataset independently agrees. The limits of each are stated plainly in
+[HOW-AND-WHY.md](HOW-AND-WHY.md).
+
 ## How this connects to real research
 
 The Al Massira decline is well documented in the peer-reviewed literature — including
@@ -261,6 +292,7 @@ python src/build_home_map.py           # "Argan Country" home-region terrain map
 python src/measure_rainfall.py         # 35-yr rainfall trend near home (NASA POWER)
 python src/measure_greenness.py        # spring NDVI trend on the argan slopes (Sentinel-2)
 python src/measure_modis_ndvi.py       # 25-year MODIS NDVI record 2000-2026 (ORNL, no login)
+python src/measure_crop_stress.py      # Doukkala crop water stress (Sentinel-2 NDMI)
 python src/build_greenness_map.py      # NDVI-change GIS map over a DEM hillshade
 python src/classify_landcover.py       # unsupervised land-cover classification (Sentinel-2)
 python src/build_geodatabase.py        # attributed GeoPackage geodatabase (+ DXF)
