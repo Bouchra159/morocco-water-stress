@@ -48,9 +48,10 @@ IMG = {
     "journey": load("map_water_journey.png", 1700, "JPEG", 84),
     "tc2017": load("truecolor_2017.jpg", 1400, "JPEG", 85),
     "tc2024": load("truecolor_2024.jpg", 1400, "JPEG", 85),
-    "argan": load("map_argan_country.png", 1700, "JPEG", 86),
-    "ndvichg": load("map_greenness_change.png", 1500, "JPEG", 86),
-    "landcover": load("map_landcover.png", 1500, "JPEG", 86),
+    "argan": load("map_qgis_argan_terrain.png", 1700, "JPEG", 86),
+    "ndvichg": load("map_qgis_greenness.png", 1500, "JPEG", 86),
+    "landcover": load("map_qgis_landcover.png", 1500, "JPEG", 86),
+    "cropstress": load("map_qgis_crop_stress.png", 1600, "JPEG", 86),
     "modis": load("fig_modis_ndvi_trend.png", 1400, "JPEG", 88),
 }
 
@@ -288,6 +289,20 @@ footer h3{{color:var(--text); margin-top:0}}
 </div></section>
 
 <section><div class="wrap reveal">
+  <p class="eyebrow">Following the water to the fields</p>
+  <h2>Did the drought reach the crops?</h2>
+  <p>A reservoir only matters because of what it waters. So I followed the water downstream to
+  the <strong>Doukkala plain</strong> and measured crop moisture (Sentinel-2 <strong>NDMI</strong>)
+  on the fields themselves. Through the drought the crops were moisture-stressed &mdash; and
+  when the 2025&ndash;26 rains refilled the dam, the fields came back with it. The green below is
+  the farmland recovering between 2024 and 2026.</p>
+  <div class="figure"><img src="{IMG['cropstress']}" alt="QGIS map of crop water-stress recovery on the Doukkala plain, 2024 to 2026, from Sentinel-2 NDMI" loading="lazy">
+    <p class="cap">Crop moisture change on the Doukkala plain (Sentinel-2 NDMI, 2024→2026) over satellite imagery. Green = crops recovered. Made in QGIS.</p></div>
+  <p class="pull">Reservoir &rarr; farmland &rarr; food. The whole chain moves together &mdash;
+  which is how you know the measurement is real.</p>
+</div></section>
+
+<section><div class="wrap reveal">
   <p class="eyebrow">Where I&rsquo;m from</p>
   <h2>And where everyone goes</h2>
   <p>I did not start caring about water in the north. I started caring about it at home, in
@@ -296,7 +311,7 @@ footer h3{{color:var(--text); margin-top:0}}
   families once farmed, there is now only enough water to drink and to wash. The one tree that
   still holds on is the argan, because it can live on almost nothing.</p>
   <div class="figure"><img src="{IMG['argan']}" alt="Shaded-relief map of the Souss valley and the Anti-Atlas, the author's home region" loading="lazy">
-    <p class="cap">Home: the Souss valley between the High Atlas and the Anti-Atlas. Copernicus DEM, rendered in Python.</p></div>
+    <p class="cap">Home: the Souss valley between the High Atlas and the Anti-Atlas. Copernicus DEM, shaded-relief layout made in QGIS.</p></div>
   <p>When the water fails, people do the one thing the land will no longer let them do: they
   leave. That is the quiet question under all of this &mdash; not only how much water is left,
   but <em>where everyone goes</em> when a place can no longer hold them. The people losing
@@ -305,10 +320,10 @@ footer h3{{color:var(--text); margin-top:0}}
   <p>I do not only tell this story &mdash; I measure it. With the same open satellite data and
   reproducible GIS I used for the reservoir, I mapped how the argan slopes have browned, and
   classified the land cover of home.</p>
-  <div class="figure"><img src="{IMG['ndvichg']}" alt="NDVI vegetation-change map of the argan slopes, 2018 to 2024, over a terrain hillshade" loading="lazy">
-    <p class="cap">Vegetation change on the argan slopes (Sentinel-2 NDVI, 2018–2024) over a Copernicus-DEM hillshade. Brown = browner / drier.</p></div>
+  <div class="figure"><img src="{IMG['ndvichg']}" alt="NDVI vegetation-change map of the argan slopes, 2018 to 2026, over satellite imagery" loading="lazy">
+    <p class="cap">Vegetation change on the argan slopes (Sentinel-2 NDVI, 2018–2026) over satellite imagery. Brown = browner / drier. Made in QGIS.</p></div>
   <div class="figure"><img src="{IMG['landcover']}" alt="Unsupervised land-cover classification near Taroudant from Sentinel-2" loading="lazy">
-    <p class="cap">Land cover near Taroudant, classified from Sentinel-2 (unsupervised K-means) — argan woodland and irrigated valley separating from bare soil and rock.</p></div>
+    <p class="cap">Land cover near Taroudant, classified from Sentinel-2 (unsupervised K-means) — argan woodland and irrigated valley separating from bare soil and rock. Made in QGIS.</p></div>
   <p>And to answer the hardest question honestly &mdash; <em>is the land really drying, or is
   this just a run of dry years?</em> &mdash; I went back <strong>25 years</strong> with MODIS.
   The greenness trends gently down, dips through the 2015&ndash;2024 drought, then rebounds in

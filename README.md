@@ -154,20 +154,22 @@ climate — which is why, to me, this is a question of **environmental justice**
 Al Massira, in the north, is where I proved I could measure a water crisis honestly. The
 reason behind it is here, in the south.
 
-![Argan Country — the Souss valley and the Anti-Atlas](figures/map_argan_country.png)
+![Argan Country — the Souss valley and the Anti-Atlas](figures/map_qgis_argan_terrain.png)
 
-*Home ground, from the open Copernicus DEM — `src/build_home_map.py`.*
+*Home ground — a QGIS shaded-relief layout (hillshade + hypsometric tint) from the open
+Copernicus GLO-30 DEM. `src/build_home_map.py` fetches the DEM; `src/qgis_argan_terrain.py`
+renders the print layout.*
 
 ### Measuring the drying — a spatial view
 
 **Where the land browned.** I mapped the change in spring vegetation (Sentinel-2 NDVI)
-between 2018 and 2024 across the argan slopes, over a hillshade of the terrain. The browning
-(drier) concentrates in the western drainages; the signal is patchy and honest, not a
-uniform collapse. This is a multi-source GIS workflow — two years of NDVI reprojected from
-UTM to a common lat/lon grid, differenced into a GeoTIFF, and draped on a Copernicus-DEM
-hillshade, with scale bar, north arrow, and legend (`src/build_greenness_map.py`).
+between 2018 and 2026 across the argan slopes, over satellite imagery. The browning (drier)
+concentrates in the western drainages; the signal is patchy and honest, not a uniform
+collapse. This is a multi-source GIS workflow — two years of NDVI reprojected from UTM to a
+common lat/lon grid, differenced into a GeoTIFF (`src/build_greenness_map.py`), then styled as
+a QGIS print layout with legend, scale bar and north arrow (`src/qgis_greenness.py`).
 
-![NDVI change on the argan slopes near Taroudant, 2018–2024](figures/map_greenness_change.png)
+![NDVI change on the argan slopes near Taroudant, 2018–2026](figures/map_qgis_greenness.png)
 
 **Rainfall is the driver, over a longer record.** Annual rainfall near Taroudant has fallen
 about **17 mm/decade** over 35 years, and the recent decade (2015+) averaged **~31% less
@@ -192,9 +194,10 @@ classification** of a spring Sentinel-2 scene into land-cover classes. The argan
 irrigated valley vegetation separate cleanly from bare soil and rock — the green tracing the
 wadis and slopes. Output as a classified GeoTIFF (`src/classify_landcover.py`); labels are
 interpreted from the clusters' spectral signatures (an honest unsupervised classification,
-not a ground-truthed map).
+not a ground-truthed map). Classified to a GeoTIFF in `src/classify_landcover.py`, then
+rendered as a QGIS print layout with named classes and areas in `src/qgis_landcover.py`.
 
-![Land-cover classification near Taroudant](figures/map_landcover.png)
+![Land-cover classification near Taroudant](figures/map_qgis_landcover.png)
 
 ## GIS skills demonstrated
 
