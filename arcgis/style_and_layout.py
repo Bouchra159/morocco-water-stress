@@ -1,13 +1,17 @@
 """
 style_and_layout.py  (run inside ArcGIS Pro's Python window / Notebook)
-Complete, presentation-quality cartography for the Morocco_Water map:
-  - real layer names (not file names)
-  - aesthetic symbology (no default squares)
-  - a fully labelled land-cover legend (named classes, not "Value 0,1,2...")
-  - reservoir shown as 2017 shoreline vs 2024 water
-  - a finished layout: title, subtitle, legend, scale bar, north arrow, credits
+Presentation-quality ArcGIS Pro cartography for the Al Massira reservoir map.
 
-Every step is independent (try/except) so partial success is fine. Run with:
+Robust against the map having been built more than once:
+  - de-duplicates layers (same name loaded twice)
+  - styles reservoir (2017 shoreline vs 2024 water), dams, communities
+  - hides the Souss/argan rasters (NDVI change, land cover) - they have their own
+    maps and do not belong on an Al Massira basin layout
+  - zooms the layout to the reservoir (with a margin), reliably
+  - builds a CLEAN 3-item legend (no runaway raster value list, no duplicates)
+  - finished layout: title, subtitle, legend, scale bar, north arrow, credits
+
+Run with:
   exec(open(r"C:\\Users\\BOUCHRA\\Projects\\morocco-water-stress\\arcgis\\style_and_layout.py").read())
 """
 import os
@@ -19,37 +23,51 @@ OUT_PNG = os.path.join(REPO, "figures", "arcgis_al_massira_layout.png")
 aprx = arcpy.mp.ArcGISProject("CURRENT")
 m = aprx.activeMap or aprx.listMaps()[0]
 
-# land-cover classes: raster Value -> (label, RGB)   (order from classify_landcover.py)
-LC = {0: ("Irrigated / dense vegetation", [26, 122, 58]),
-      1: ("Argan woodland / shrub", [123, 160, 90]),
-      2: ("Sparse vegetation", [205, 216, 154]),
-      3: ("Bare soil", [217, 185, 138]),
-      4: ("Rock / mountain", [154, 138, 122]),
-      5: ("Other / mixed", [176, 160, 144])}
+
+# ---------------- 0. de-duplicate layers by data source (build ran twice) ----------------
+seen = set()
+for l in list(m.listLayers()):
+    try:
+        if not (l.isFeatureLayer or l.isRasterLayer):
+            continue
+        try:
+            key = l.dataSource
+        except Exception:
+            key = l.name
+        if key in seen:
+            m.removeLayer(l)
+            print("removed duplicate:", key)
+        else:
+            seen.add(key)
+    except Exception as e:
+        print("dedup skip:", e)
 
 
 def get(key):
-    # match the key anywhere in the layer name (handles "main.reservoirs", renamed layers)
     for l in m.listLayers():
-        if key in l.name.lower():
-            return l
+        try:
+            if key in l.name.lower():
+                return l
+        except Exception:
+            pass
     return None
 
 
-def first_ramp(names):
-    for n in names:
-        r = aprx.listColorRamps(n)
-        if r:
-            return r[0]
-    return None
+res, dams, comm = get("reservoir"), get("dam"), get("communit")
+ndvi, landc = get("ndvi"), get("landcover") or get("land cover") or get("land_cover")
 
 
-# grab references up front (so renaming later doesn't break lookups)
-res, dams, comm = get("reservoirs"), get("dams"), get("communities")
-ndvi, landc = get("ndvi_change"), get("landcover")
+# ---------------- 1. hide the south-region rasters on this layout ----------------
+for lyr in (ndvi, landc):
+    if lyr:
+        try:
+            lyr.visible = False
+            print("hidden on layout:", lyr.name)
+        except Exception as e:
+            print("hide skip:", e)
 
 
-# ---------------- points: fix squares -> clean markers ----------------
+# ---------------- 2. points: clean markers (no default squares) ----------------
 def style_points(l, gallery, rgb, size):
     if not l:
         return
@@ -57,8 +75,8 @@ def style_points(l, gallery, rgb, size):
         sym = l.symbology
         try:
             sym.renderer.symbol.applySymbolFromGallery(gallery)
-        except Exception as e:
-            print("  gallery skipped:", e)
+        except Exception:
+            pass
         sym.renderer.symbol.color = {"RGB": rgb}
         sym.renderer.symbol.size = size
         try:
@@ -72,11 +90,11 @@ def style_points(l, gallery, rgb, size):
         print("point style error:", e)
 
 
-style_points(comm, "Circle 3", [30, 30, 30, 100], 8)
+style_points(comm, "Circle 3", [30, 30, 30, 100], 7)
 style_points(dams, "Triangle 3", [214, 39, 40, 100], 13)
 
 
-# ---------------- reservoir: 2017 shoreline vs 2024 water ----------------
+# ---------------- 3. reservoir: 2017 shoreline vs 2024 water ----------------
 if res:
     try:
         sym = res.symbology
@@ -88,7 +106,7 @@ if res:
                 if yr == "2017":
                     itm.symbol.color = {"RGB": [0, 0, 0, 0]}
                     itm.symbol.outlineColor = {"RGB": [0, 197, 255, 100]}
-                    itm.symbol.outlineWidth = 1.6
+                    itm.symbol.outlineWidth = 1.8
                     itm.label = "2017 shoreline (full)"
                 else:
                     itm.symbol.color = {"RGB": [0, 92, 175, 100]}
@@ -101,96 +119,81 @@ if res:
         print("reservoir style error:", e)
 
 
-# ---------------- NDVI change raster ----------------
-if ndvi:
-    try:
-        sym = ndvi.symbology
-        if sym.colorizer.type != "RasterStretchColorizer":
-            sym.updateColorizer("RasterStretchColorizer")
-        sym.colorizer.stretchType = "PercentClip"
-        ramp = first_ramp(["Brown to Green (Continuous)", "Green-Brown (Continuous)",
-                           "Red-Green (Continuous)"])
-        if ramp:
-            sym.colorizer.colorRamp = ramp
-        ndvi.symbology = sym
-        print("styled NDVI change raster")
-    except Exception as e:
-        print("ndvi raster error:", e)
-
-
-# ---------------- land cover: named classes + colours ----------------
-if landc:
-    try:
-        sym = landc.symbology
-        if sym.colorizer.type != "RasterUniqueValueColorizer":
-            sym.updateColorizer("RasterUniqueValueColorizer")
-        sym.colorizer.field = "Value"
-        for grp in sym.colorizer.groups:
-            for itm in grp.items:
-                try:
-                    v = int(float(itm.values[0]))
-                except Exception:
-                    continue
-                if v in LC:
-                    itm.label = LC[v][0]
-                    itm.color = {"RGB": LC[v][1] + [100]}
-        landc.symbology = sym
-        print("styled land cover (named classes)")
-    except Exception as e:
-        print("landcover raster error:", e)
-
-
-# ---------------- real layer names (do this last) ----------------
+# ---------------- 4. real layer names ----------------
 for lyr, name in [(res, "Al Massira reservoir (2017 vs 2024)"),
-                  (dams, "Major dams"),
-                  (comm, "Communities served"),
-                  (ndvi, "Vegetation change 2018\u20132026 (NDVI)"),
-                  (landc, "Land cover (Sentinel-2, 2026)")]:
+                  (dams, "Major dams"), (comm, "Communities served")]:
     if lyr:
         try:
             lyr.name = name
         except Exception as e:
-            print("rename skipped:", e)
+            print("rename skip:", e)
 print("renamed layers")
 
 
-# ---------------- zoom to the reservoir ----------------
-try:
-    view = aprx.activeView
-    if res and view and hasattr(view, "camera"):
-        view.camera.setExtent(view.getLayerExtent(res, False, True))
-        print("zoomed to reservoir")
-except Exception as e:
-    print("zoom skipped:", e)
-
-
-# ---------------- finished layout ----------------
+# ---------------- 5. finished layout ----------------
 try:
     for old in aprx.listLayouts("Al Massira*"):
         aprx.deleteItem(old)
 except Exception:
     pass
+
 try:
     lyt = aprx.createLayout(11, 8.5, "INCH", "Al Massira Layout")
     mf = lyt.createMapFrame(
         arcpy.Polygon(arcpy.Array([arcpy.Point(0.35, 0.35), arcpy.Point(0.35, 7.7),
-                                   arcpy.Point(7.6, 7.7), arcpy.Point(7.6, 0.35)])), m, "MainMap")
-    if res:
-        mf.camera.setExtent(mf.getLayerExtent(res, False, True))
+                                   arcpy.Point(7.9, 7.7), arcpy.Point(7.9, 0.35)])), m, "MainMap")
+
+    # ---- reliable zoom: set camera centre + scale in the map's own SR ----
+    def zoom_to_reservoir():
+        try:
+            sr = mf.map.spatialReference
+            code = sr.factoryCode
+            print("  map SR:", code, sr.name)
+            if code in (3857, 102100):                 # Web Mercator
+                cx, cy = -842700.0, 3841000.0          # Al Massira centre
+            elif code == 4326:                         # WGS84 degrees
+                cx, cy = -7.57, 32.53
+            else:                                      # anything else: project a point
+                pg = arcpy.PointGeometry(arcpy.Point(-7.57, 32.53),
+                                         arcpy.SpatialReference(4326)).projectAs(sr)
+                cx, cy = pg.centroid.X, pg.centroid.Y
+            mf.camera.X = cx
+            mf.camera.Y = cy
+            mf.camera.scale = 380000                   # ~65 km wide on this frame
+            print("  camera centre", round(cx, 1), round(cy, 1), "scale 380000")
+        except Exception as e:
+            print("  zoom failed:", e)
+
+    zoom_to_reservoir()
 
     def surround(kind, pt, cat, name):
         try:
             items = aprx.listStyleItems("ArcGIS 2D", cat)
-            lyt.createMapSurroundElement(pt, kind, mf, items[0] if items else None, name)
-            print("  added", name)
+            return lyt.createMapSurroundElement(pt, kind, mf, items[0] if items else None, name)
         except Exception as e:
             print("  ", kind, "skipped:", e)
+            return None
 
-    surround("LEGEND", arcpy.Point(7.8, 5.6), "LEGEND", "Legend")
-    surround("SCALE_BAR", arcpy.Point(0.55, 0.5), "Scale_bar", "Scale Bar")
-    surround("NORTH_ARROW", arcpy.Point(10.4, 7.5), "North_Arrow", "North Arrow")
+    leg = surround("LEGEND", arcpy.Point(8.15, 5.4), "LEGEND", "Legend")
+    surround("SCALE_BAR", arcpy.Point(0.55, 0.55), "Scale_bar", "Scale Bar")
+    surround("NORTH_ARROW", arcpy.Point(10.5, 7.6), "North_Arrow", "North Arrow")
 
-    # title / subtitle / credits via CIM (works without createTextElement)
+    # ---- CLEAN legend: keep only the 3 vector layers, drop rasters/basemap/dupes ----
+    if leg:
+        try:
+            keep = ("reservoir", "dam", "communit")
+            cim = leg.getDefinition("V3")
+            cim.items = [it for it in cim.items if any(k in it.name.lower() for k in keep)]
+            try:
+                cim.fittingStrategy = "AdjustFrame"
+            except Exception:
+                pass
+            leg.setDefinition(cim)
+            print("cleaned legend ->", [i.name for i in cim.items])
+        except Exception as e:
+            print("  legend clean skipped:", e)
+
+    # ---- title / subtitle / credits via CIM (no createTextElement dependency) ----
     try:
         def _txt(s, x, y, h):
             return {"type": "CIMGraphicElement", "name": s[:24], "anchor": "BottomLeftCorner",
@@ -201,9 +204,9 @@ try:
                                         {"type": "CIMSolidFill", "enable": True,
                                          "color": {"type": "CIMRGBColor", "values": [30, 30, 30, 100]}}]}}}}}
         cim = lyt.getDefinition("V3")
-        cim.elements.append(_txt("Al Massira Reservoir & the Oum Er-Rbia Basin", 0.35, 8.15, 22))
-        cim.elements.append(_txt("Satellite water-mapping, land cover, and the communities that depend on it", 0.35, 7.88, 12))
-        cim.elements.append(_txt("Data: Sentinel-2 (Copernicus), Copernicus DEM, HCP census. Cartography: B. Daddaoui, 2026.", 0.35, 0.15, 8))
+        cim.elements.append(_txt("Al Massira Reservoir - collapse and comeback", 0.35, 8.15, 22))
+        cim.elements.append(_txt("Satellite water-mapping of the reservoir that waters Casablanca and the Doukkala plain", 0.35, 7.86, 11))
+        cim.elements.append(_txt("Data: Sentinel-2 (Copernicus), HCP census. Cartography: B. Daddaoui, 2026.", 0.35, 0.12, 8))
         lyt.setDefinition(cim)
         print("added title / subtitle / credits")
     except Exception as e:
