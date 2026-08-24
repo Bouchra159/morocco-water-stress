@@ -7,11 +7,12 @@ panel.
   1 SUPPLY   — where the rain falls (rain shadow of the High Atlas)
   2 DELIVERY — the terrain and rivers that carry what little there is
   3 USE      — the irrigated export farmland glowing in a semi-arid plain
+  4 COST     — what a rainfall control reveals about that green
 
-Run one panel at a time:  main("supply") / main("delivery") / main("all")
-or main("all") to render all three.
+Run one panel at a time: main("supply") / main("delivery") / main("use"), or
+main("all") for the three, then cost() for the fourth "untold" panel.
 
-Outputs: figures/map_souss_supply.png, _delivery.png, _use.png (300 dpi)
+Outputs: figures/map_souss_supply.png, _delivery.png, _use.png, _cost.png (300 dpi)
 """
 import os
 from qgis.core import (
@@ -258,4 +259,44 @@ def main(which="all"):
         use()
 
 
-main("all")
+def cost():
+    """Panel 4 — the untold part: what a control test reveals about the green."""
+    proj = _base("cost")
+    sat = QgsRasterLayer(
+        "type=xyz&url=https://services.arcgisonline.com/ArcGIS/rest/services/"
+        "World_Imagery/MapServer/tile/%7Bz%7D/%7By%7D/%7Bx%7D&zmax=19&zmin=0", "Satellite", "wms")
+    proj.addMapLayer(sat)
+    stops = [(-0.30, "#8c510a"), (-0.15, "#d8b365"), (-0.03, "#f6e8c3"),
+             (0.03, "#c7eae5"), (0.15, "#5ab4ac"), (0.30, "#01665e")]
+    ch = _pseudocolor(REPO + "/data/geo/souss_change.tif",
+                      "Vegetation change 2018\u21922026", stops, -0.30, 0.30,
+                      opacity=0.85, fmt="{v:+.2f}")
+    proj.addMapLayer(ch)
+    pts = _towns(proj, subset={"Oulad Teima", "Taroudant"}, size="3.4")
+    order = [pts, ch, sat]
+    _layout(proj, order, PLAIN_EXT,
+        "The Cost \u2014 the Disguise is Thinning",
+        "Vegetation change on the Souss plain, 2018 \u2192 2026 (Sentinel-2 NDVI, matched spring windows)",
+        "At first the data said the irrigated area grew 46%. That was wrong. 2026 was an exceptionally wet "
+        "year, so I tested a control: bare desert that nobody irrigates. It greened by +0.09 \u2014 pure "
+        "rainfall. Measured against that baseline, the land that was already farmland in 2018 is "
+        "\u22120.25 NDVI LOWER in 2026. Even in a record wet year, the established farms lost green. Two "
+        "explanations remain, and both mean more water stress: wells are failing, or open groves are being "
+        "replaced by plastic greenhouses, which read dark to a satellite. The map raises the question; it "
+        "cannot yet close it.",
+        ("NDVI change 2018\u21922026", [("#01665e", "+0.30   much greener"),
+                                    ("#5ab4ac", "+0.15   greener"),
+                                    ("#c7eae5", "+0.03"),
+                                    ("#f6e8c3", "\u22120.03   \u2248 no change"),
+                                    ("#d8b365", "\u22120.15   browner"),
+                                    ("#8c510a", "\u22120.30   lost its green")]),
+        "NDVI from date-matched Sentinel-2 spring composites (Copernicus), reprojected to a common grid. "
+        "Rainfall baseline from a bare-desert control. Basemap: Esri World Imagery. Cartography: B. Daddaoui, 2026.",
+        REPO + "/figures/map_souss_cost.png",
+        "A DESERT IN DISGUISE  \u00b7  SOUSS-MASSA  \u00b7  4 \u00b7 the untold panel", 10,
+        annotations=[("Brown where the old farmland lost its green,\neven in a record wet year",
+                      60, 44, 12, "#ffffff", 170)],
+        map_h=170)
+
+
+cost()
