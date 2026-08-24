@@ -26,8 +26,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PROCESSED = ROOT / "data" / "processed"
 GEO = ROOT / "data" / "geo"
 POWER = "https://power.larc.nasa.gov/api/temporal/climatology/point"
-AOI = (-9.85, 30.1, -8.15, 31.9)          # inside the DEM, coast -> High Atlas
-NLON, NLAT = 7, 8                          # sample grid (NASA POWER ~0.5 deg native)
+AOI = (-9.95, 28.4, -6.45, 31.15)         # the whole Souss-Massa region
+NLON, NLAT = 9, 9                          # sample grid (NASA POWER ~0.5 deg native)
 RES = 0.02                                 # output raster ~2 km
 
 
@@ -71,7 +71,7 @@ def main():
                 rows.append({"lon": round(float(lo), 3), "lat": round(float(la), 3), "precip_mm": p})
                 print(f"  {lo:6.2f},{la:5.2f}  {p:6.1f} mm/yr")
     df = pd.DataFrame(rows)
-    df.to_csv(PROCESSED / "rainshadow_grid.csv", index=False)
+    df.to_csv(PROCESSED / "rainshadow_grid_souss_massa.csv", index=False)
 
     xs, ys, vs = df["lon"].values, df["lat"].values, df["precip_mm"].values
     W = int(round((AOI[2] - AOI[0]) / RES))
@@ -93,14 +93,14 @@ def main():
         print("interpolated with IDW")
 
     transform = from_origin(AOI[0], AOI[3], RES, RES)
-    with rasterio.open(GEO / "precip_rainshadow.tif", "w", driver="GTiff", height=H, width=W,
+    with rasterio.open(GEO / "precip_souss_massa.tif", "w", driver="GTiff", height=H, width=W,
                        count=1, dtype="float32", crs="EPSG:4326", transform=transform,
                        nodata=np.nan, compress="deflate") as dst:
         dst.write(grid.astype("float32"), 1)
     print("wrote data/geo/precip_rainshadow.tif")
 
-    north = df[df["lat"] > 31.2]["precip_mm"].mean()      # windward High Atlas
-    south = df[df["lat"] < 30.6]["precip_mm"].mean()      # leeward Anti-Atlas / home
+    north = df[df["lat"] > 30.8]["precip_mm"].mean()      # windward High Atlas
+    south = df[df["lat"] < 29.6]["precip_mm"].mean()      # leeward Anti-Atlas / home
     print(f"\nwindward north (High Atlas)  {north:.0f} mm/yr")
     print(f"leeward south (Anti-Atlas)   {south:.0f} mm/yr")
     print(f"rain shadow: the south gets {100*(north-south)/north:.0f}% less rain than the north")
