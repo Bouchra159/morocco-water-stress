@@ -222,6 +222,61 @@ to where it lives:
 
 Reproduce: `python src/build_geodatabase.py && python src/qa_qc.py`
 
+## A Desert in Disguise — Souss-Massa in four maps
+
+My home region, told in the structure National Geographic uses for its
+[California: A Desert in Disguise](https://education.nationalgeographic.org/resource/california-desert-disguise/)
+lesson — **Supply → Delivery → Use**, plus the fourth "untold" panel that lesson
+challenges you to design yourself. Same method, my own region, my own data.
+
+**1 · Supply — where the rain falls.** Mountains decide who gets water. Atlantic moisture
+climbs the High Atlas and rains out on the windward north; by the time the air crosses to the
+leeward Souss and Anti-Atlas it is wrung dry. Measured from NASA POWER: the far south gets
+**99 mm/yr against 287 mm/yr in the northern mountains — 65% less**. This is the orographic
+rain shadow taught in NatGeo's *Precipitation Across Landscapes*, measured rather than assumed.
+
+![Supply — the rain shadow of the High Atlas](figures/map_souss_supply.png)
+
+**2 · Delivery — how the water travels.** The Souss valley is the corridor between the High
+Atlas and the Anti-Atlas that gathers what little falls and carries it west to the Atlantic.
+That narrow strip is where nearly everyone lives, and where the farms are.
+
+![Delivery — the Souss valley corridor](figures/map_souss_delivery.png)
+
+**3 · Use — where the water goes.** Here is the disguise. In a plain with desert-level
+rainfall, roughly **162,000 hectares** glow green — citrus and greenhouse vegetables, much of
+it exported. That green is not rain-fed; it is pumped, largely from the Souss aquifer.
+
+![Use — the irrigated Souss plain](figures/map_souss_use.png)
+
+**4 · The Cost — and the control test that changed the answer.** Comparing 2018 with 2026, the
+irrigated area appeared to grow **+46%**. That was wrong, and finding out why is the most
+important analysis in this repo. 2026 was an exceptionally wet year, so I tested a **control**:
+bare desert that nobody irrigates. It greened by **+0.09 NDVI** — pure rainfall. Rangeland was
+simply crossing my NDVI threshold after rain, not becoming farmland.
+
+Measured against that rainfall baseline, the land that was **already farmland in 2018 is
+−0.25 NDVI lower in 2026**. Even in a record wet year, the established farms lost green.
+
+![The Cost — vegetation change on the Souss plain](figures/map_souss_cost.png)
+
+Two explanations remain and I cannot separate them with NDVI alone — wells failing, or open
+groves being replaced by plastic greenhouses, which read dark to a satellite. Both point the
+same way: more water stress. The honest position is that this map **raises** the question
+rather than closing it; distinguishing the two needs SWIR-based plastic detection or field data.
+
+| | Mean NDVI change 2018→2026 | vs rainfall baseline |
+|---|---|---|
+| Bare desert (control) | **+0.094** | — (this *is* the baseline) |
+| Sparse rangeland | +0.061 | −0.034 |
+| Farmland in 2018 | **−0.160** | **−0.255** |
+
+Built by `src/fetch_souss_dem.py`, `src/measure_rainshadow.py`,
+`src/measure_souss_agriculture.py`, `src/measure_souss_change.py`, and rendered in QGIS by
+`src/qgis_souss_triptych.py`. Method note: the two years use **date-matched spring windows**
+(20 Mar – 15 May) so crop growth stage is comparable — before that correction the apparent
+change was inflated to +119%.
+
 ## Does it all hang together? (cross-validation)
 
 Four *independent* measurements — a reservoir, rainfall, crop moisture, and long-term
@@ -296,6 +351,10 @@ python src/measure_rainfall.py         # 35-yr rainfall trend near home (NASA PO
 python src/measure_greenness.py        # spring NDVI trend on the argan slopes (Sentinel-2)
 python src/measure_modis_ndvi.py       # 25-year MODIS NDVI record 2000-2026 (ORNL, no login)
 python src/measure_crop_stress.py      # Doukkala crop water stress (Sentinel-2 NDMI)
+python src/fetch_souss_dem.py        # Copernicus DEM for the whole Souss-Massa region
+python src/measure_rainshadow.py     # rain-shadow precipitation surface (NASA POWER)
+python src/measure_souss_agriculture.py  # irrigated area of the Souss plain (Sentinel-2)
+python src/measure_souss_change.py   # irrigated change 2018-2026 + rainfall control
 python src/build_greenness_map.py      # NDVI-change GIS map over a DEM hillshade
 python src/classify_landcover.py       # unsupervised land-cover classification (Sentinel-2)
 python src/build_geodatabase.py        # attributed GeoPackage geodatabase (+ DXF)
