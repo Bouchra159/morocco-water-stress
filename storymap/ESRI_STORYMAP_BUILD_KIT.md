@@ -186,3 +186,56 @@ Optional table block:
 - Put the four big numbers (777 m³ · 88 % · −91 % · 7.7 M) in **large number blocks** — they anchor the scroll.
 - Every map caption should say **"Made in QGIS"** or **"ArcGIS Pro"** — reviewers for a GIS role look for that.
 - Publish as **unlisted** first, review on your phone, then set to **public** and share the link in your application.
+
+---
+
+## 7b · A Desert in Disguise — Souss-Massa in four maps  *(block: Sidecar, or Text + 4 Images)*
+
+Place this **after section 7 (Where I'm from)**. It applies National Geographic's own
+*California: A Desert in Disguise* structure — Supply → Delivery → Use, plus the fourth
+"untold" map that lesson asks you to design — to Bouchra's home region.
+
+**Intro text:**
+> National Geographic teaches California's water story in three maps — **where the water comes
+> from, how it travels, and who uses it** — then challenges you to design a fourth for the part
+> the first three leave out. I built that structure for **Souss-Massa**, my own region, with my
+> own measurements.
+
+**1 · Supply** — image `esri_assets/16_souss_supply.png`
+> Atlantic moisture climbs the High Atlas and rains out on the windward north. By the time the
+> air crosses to the leeward side it has been wrung dry. That is the **rain shadow**, and my home
+> sits inside it: **99 mm of rain a year in the far south against 287 mm in the northern
+> mountains — 65% less**. The desert here is not an accident of latitude. It is made by the mountains.
+- *Caption:* Annual rainfall across Souss-Massa (NASA POWER) over Copernicus DEM terrain. Made in QGIS.
+
+**2 · Delivery** — image `esri_assets/17_souss_delivery.png`
+> Between the High Atlas and the Anti-Atlas runs one valley that gathers what little falls and
+> carries it west to the Atlantic. Almost everyone lives along it. Almost every farm is in it.
+- *Caption:* The Souss corridor, shaded relief from the Copernicus GLO-30 DEM. Made in QGIS.
+
+**3 · Use** — image `esri_assets/18_souss_use.png`
+> Here is the disguise: in a plain with desert-level rainfall, roughly **162,000 hectares glow
+> green** — citrus and greenhouse vegetables, much of it for export. That green does not come
+> from the sky. It is pumped out of the ground.
+- *Caption:* Irrigated land on the Souss plain (Sentinel-2 NDVI, spring 2026). Made in QGIS.
+
+**4 · The Cost** — image `esri_assets/19_souss_cost.png`
+> For the fourth map I asked the obvious question: is that green growing or shrinking? The data
+> said it **grew 46%**. I nearly published that. It was wrong. 2026 was an exceptionally wet year,
+> so I ran a **control** — bare desert that nobody irrigates. It greened **+0.09** on its own,
+> purely from rain. Measured against that baseline the truth reverses: land that was **already
+> farmland in 2018 is −0.25 lower in 2026**. The established farms lost green *even in a record
+> wet year*.
+- *Caption:* Vegetation change 2018→2026, date-matched spring composites. The brown rectangles are real fields. Made in QGIS.
+
+**Quote block:**
+> *"A control test is the difference between a map that informs and a map that misleads. Mine
+> nearly misled me."*
+
+**Optional table block** (the control test):
+
+| | Mean NDVI change 2018→2026 | vs rainfall baseline |
+|---|---|---|
+| Bare desert (control) | +0.094 | — (this *is* the baseline) |
+| Sparse rangeland | +0.061 | −0.034 |
+| Farmland in 2018 | −0.160 | **−0.255** |

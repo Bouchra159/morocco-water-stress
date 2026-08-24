@@ -53,6 +53,10 @@ IMG = {
     "landcover": load("map_qgis_landcover.png", 1500, "JPEG", 86),
     "cropstress": load("map_qgis_crop_stress.png", 1600, "JPEG", 86),
     "modis": load("fig_modis_ndvi_trend.png", 1400, "JPEG", 88),
+    "sup": load("map_souss_supply.png", 1600, "JPEG", 86),
+    "del": load("map_souss_delivery.png", 1600, "JPEG", 86),
+    "use": load("map_souss_use.png", 1600, "JPEG", 86),
+    "cost": load("map_souss_cost.png", 1600, "JPEG", 86),
 }
 
 # the animation must stay a GIF (embed raw bytes, not re-encoded)
@@ -331,6 +335,56 @@ footer h3{{color:var(--text); margin-top:0}}
   with all its nuance, matters to me more than a scarier straight line would.</p>
   <div class="figure"><img src="{IMG['modis']}" alt="25-year MODIS NDVI trend on the argan slopes, 2000 to 2026" loading="lazy">
     <p class="cap">Vegetation greenness on the argan slopes, 2000–2026 (MODIS). A modest decline with big rainfall-driven swings.</p></div>
+</div></section>
+
+<section class="section--tint"><div class="wrap reveal">
+  <p class="eyebrow">A desert in disguise &middot; four maps</p>
+  <h2>My home region, in the shape of a lesson</h2>
+  <p>National Geographic teaches California&rsquo;s water story in three maps &mdash;
+  <strong>where the water comes from, how it travels, and who uses it</strong> &mdash; and then
+  challenges you to design a fourth for the part the first three leave out. I built that
+  structure for <strong>Souss-Massa</strong>, my own region, with my own measurements.</p>
+
+  <h3>1 &middot; Supply &mdash; mountains decide who gets water</h3>
+  <p>Atlantic moisture climbs the High Atlas and rains out on the windward north. By the time
+  the air crosses to the leeward side, it has been wrung dry. That is the <em>rain shadow</em>,
+  and my home sits inside it: <strong>99&nbsp;mm of rain a year in the far south against
+  287&nbsp;mm in the northern mountains &mdash; 65% less</strong>. The desert here is not an
+  accident of latitude. It is made by the mountains.</p>
+  <div class="figure"><img src="{IMG['sup']}" alt="Rain shadow map of Souss-Massa: windward north wet, leeward south dry" loading="lazy">
+    <p class="cap">Annual rainfall across Souss-Massa (NASA POWER), over Copernicus DEM terrain. Made in QGIS.</p></div>
+
+  <h3>2 &middot; Delivery &mdash; the corridor</h3>
+  <p>Between the High Atlas and the Anti-Atlas runs one valley that gathers what little falls
+  and carries it west to the Atlantic. Almost everyone lives along it. Almost every farm is in it.</p>
+  <div class="figure"><img src="{IMG['del']}" alt="Terrain map of the Souss valley corridor between the High Atlas and Anti-Atlas" loading="lazy">
+    <p class="cap">The Souss corridor, shaded relief from the Copernicus GLO-30 DEM. Made in QGIS.</p></div>
+
+  <h3>3 &middot; Use &mdash; the disguise</h3>
+  <p>And here is what a satellite sees: in a plain with desert-level rainfall, roughly
+  <strong>162,000 hectares glow green</strong> &mdash; citrus and greenhouse vegetables, much of
+  it grown for export. That green does not come from the sky. It is pumped out of the ground.</p>
+  <div class="figure"><img src="{IMG['use']}" alt="Sentinel-2 map of irrigated farmland on the Souss plain" loading="lazy">
+    <p class="cap">Irrigated land on the Souss plain (Sentinel-2 NDVI, spring 2026). Made in QGIS.</p></div>
+
+  <h3>4 &middot; The Cost &mdash; the map that corrected me</h3>
+  <p>For the fourth map I asked the obvious question: is that green growing or shrinking? The
+  data said it <strong>grew 46%</strong> between 2018 and 2026. I nearly published that. It was
+  wrong.</p>
+  <p>2026 was an exceptionally wet year, so I ran a <strong>control</strong> &mdash; bare desert
+  that nobody irrigates. It greened by <strong>+0.09</strong> on its own, purely from rain. Most
+  of my &ldquo;new farmland&rdquo; was just rangeland crossing a threshold after a wet winter.
+  Measured against that rainfall baseline, the truth reverses: the land that was
+  <strong>already farmland in 2018 is &minus;0.25 lower in 2026</strong>. The established farms
+  lost green <em>even in a record wet year</em>.</p>
+  <div class="figure"><img src="{IMG['cost']}" alt="Vegetation change on the Souss plain 2018 to 2026 showing farmland losing green" loading="lazy">
+    <p class="cap">Vegetation change 2018&rarr;2026, date-matched spring composites. The brown rectangles are real fields. Made in QGIS.</p></div>
+  <p class="pull">A control test is the difference between a map that informs and a map that
+  misleads. Mine nearly misled me.</p>
+  <p class="muted">Two explanations survive, and a vegetation index cannot separate them: the
+  wells are failing, or open groves are being replaced by plastic greenhouses, which read dark
+  from orbit. Both mean more pressure on the same aquifer. I would rather show you a map that
+  states its own limits than one that sounds certain.</p>
 </div></section>
 
 <section><div class="wrap reveal">
