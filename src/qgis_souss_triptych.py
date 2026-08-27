@@ -34,7 +34,8 @@ from qgis.core import (
     QgsFillSymbol, QgsPalLayerSettings, QgsTextFormat, QgsTextBufferSettings,
     QgsVectorLayerSimpleLabeling, QgsPrintLayout, QgsLayoutItemMap, QgsLayoutItemLabel,
     QgsLayoutItemScaleBar, QgsLayoutItemPicture, QgsLayoutItemShape, QgsLayoutPoint,
-    QgsLayoutSize, QgsUnitTypes, QgsLayoutExporter, QgsApplication)
+    QgsLayoutSize, QgsUnitTypes, QgsLayoutExporter, QgsApplication,
+    QgsLayoutItemMapOverview, QgsLineSymbol as _LS)
 from qgis.PyQt.QtGui import QColor, QFont, QPainter
 from qgis.PyQt.QtCore import QRectF
 from qgis.utils import iface
@@ -171,9 +172,40 @@ def _layout(proj, order, ext, title, subtitle, body, legend, note, out_png,
     layout.addLayoutItem(sb)
     na = QgsLayoutItemPicture(layout)
     na.setPicturePath(os.path.join(QgsApplication.pkgDataPath(), "svg", "arrows", "NorthArrow_02.svg"))
-    na.attemptResize(QgsLayoutSize(16, 16, MM)); na.attemptMove(QgsLayoutPoint(390, 204, MM))
+    na.attemptResize(QgsLayoutSize(14, 14, MM)); na.attemptMove(QgsLayoutPoint(312, 222, MM))
     layout.addLayoutItem(na)
-    label(note, 8, 291, 7, color="#777", width=300)
+    # ---- locator inset: where in Morocco is this? (Esri map-essentials) ----
+    try:
+        loc_layer = QgsVectorLayer(REPO + "/data/geo/morocco_adm0.geojson", "Morocco", "ogr")
+        if loc_layer.isValid():
+            loc_layer.setRenderer(QgsSingleSymbolRenderer(QgsFillSymbol.createSimple(
+                {"color": "232,226,212,255", "outline_color": "120,110,95,255",
+                 "outline_width": "0.25"})))
+            proj.addMapLayer(loc_layer, False)
+
+            loc = QgsLayoutItemMap(layout)
+            loc.attemptSetSceneRect(QRectF(8, 32, 46, 46))       # top-left of the map frame
+            loc.setLayers([loc_layer])
+            mb = loc_layer.extent()
+            mb.grow(0.6)
+            loc.setExtent(mb)
+            loc.setBackgroundColor(QColor(214, 229, 238))         # sea
+            loc.setFrameEnabled(True)
+            loc.setFrameStrokeColor(QColor("#555"))
+            layout.addLayoutItem(loc)
+
+            # QGIS draws the main map's extent onto the inset for us
+            ov = QgsLayoutItemMapOverview("aoi", loc)
+            ov.setLinkedMap(m)
+            ov.setFrameSymbol(QgsFillSymbol.createSimple(
+                {"color": "0,0,0,0", "outline_color": "200,30,30,255", "outline_width": "0.9"}))
+            loc.overviews().addOverview(ov)
+            loc.refresh()
+            label("study area", 10, 78.5, 7.5, bold=True, color="#333", width=44)
+    except Exception as e:
+        print("  locator inset skipped:", e)
+
+    label(note + "  Geographic coordinates (EPSG:4326).", 8, 291, 7, color="#777", width=340)
 
     exp = QgsLayoutExporter(layout); st = QgsLayoutExporter.ImageExportSettings(); st.dpi = 300
     print(out_png.split("/")[-1], "export:", exp.exportToImage(out_png, st))
