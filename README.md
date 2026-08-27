@@ -11,18 +11,46 @@ elevation data, fully reproducible from the scripts in `src/`.
 
 **The GIS work in this repo:**
 - 🛰️ **Satellite measurement** — the Al Massira reservoir's water surface mapped from
-  Sentinel-2 every dry season, 2017–2025 (NDWI + Otsu), and vectorised to a GeoPackage
-- 🗺️ **Cartography (QGIS)** — the reservoir's 2017-vs-2024 extent over satellite imagery, a
-  community map of who depends on it, and shaded-relief + hypsometric terrain maps
-- 🎚️ **Interactive** — a before/after satellite swipe and a scrollytelling StoryMap
-- 🌿 **Spatial change analysis** — a vegetation-change (NDVI) map of the drying argan region
-- 🧩 **Land-cover classification** — unsupervised K-means of Sentinel-2 into land-cover classes
-- 🗄️ **Data management & QA/QC** — an attributed GeoPackage geodatabase (+ AutoCAD DXF), a
-  data dictionary, and an automated quality-control report
+  Sentinel-2 every dry season, **2017–2026** (NDWI + Otsu), and vectorised to a GeoPackage
+- 🗺️ **Cartography** — **12 print-quality maps** built in **QGIS (PyQGIS)** and
+  **ArcGIS Pro (arcpy)**: reservoir extents over satellite imagery, community exposure,
+  shaded-relief + hypsometric terrain, crop water stress, and land cover
+- 🏔️ **[A Desert in Disguise: Souss-Massa](#a-desert-in-disguise--souss-massa-in-four-maps)** —
+  my home region told with National Geographic's own lesson structure
+  (*Supply → Delivery → Use* + the "untold" fourth panel), including the **rain shadow** that
+  makes the south dry: **99 mm/yr south vs 287 mm/yr north**
+- 🧪 **Change detection with controls** — date-matched composites, a **rainfall control test**,
+  and a spectral **separability gate** that reports when a result is *not* reliable
+- 🧩 **Classification** — unsupervised K-means, plus **supervised Random Forest with a full
+  accuracy assessment** (confusion matrix, overall accuracy, Cohen's kappa) validated on a
+  **spatially blocked** hold-out
+- 🗄️ **Spatial SQL & databases** — **DuckDB spatial** (`ST_Area`/`ST_Distance`/`ST_DWithin`,
+  PostGIS-style), an attributed **GeoPackage** geodatabase, **AutoCAD DXF**, a data dictionary
+  and an automated **QA/QC** report
+- ☁️ **Cloud-native geospatial** — data streamed from the **STAC API** with windowed **COG**
+  reads (no bulk downloads); outputs published as **validated COGs** and **GeoParquet**
+- 🎚️ **Storytelling** — a scrollytelling **StoryMap**, a before/after satellite swipe, and an
+  Esri StoryMaps build kit
 
 *The maps are the work. A few plain charts appear only as supporting context.*
 
-![Al Massira reservoir vanishing, 2017–2025, measured from Sentinel-2](figures/reservoir_timelapse.gif)
+### Three times this project corrected itself
+
+The analysis matters less than whether you can trust it. Three findings here were **overturned
+by my own checks** before publication — each one is documented in the repo rather than quietly
+fixed:
+
+| What I first believed | What checking revealed |
+|---|---|
+| The reservoir is **vanishing (−91%)** | Extending the record to 2026 showed it **refilled to 125 km²**, above its 2017 level. The story was rewritten from "vanishing" to **collapse *and comeback*** — the volatility *is* the climate signal. |
+| Souss irrigation **grew +46%** | 2026 was an exceptionally wet year. A **control on bare desert nobody irrigates** showed it greened **+0.09 from rain alone**. Corrected against that baseline, established farmland is **−0.25 lower** — the farms *lost* green. |
+| Failing farms are **69% plastic greenhouses** | A **separability check** showed the classifier could only distinguish its own reference classes **67.7%** of the time. The script reports **INCONCLUSIVE** rather than publish a shaky number. |
+
+Every map states its own limits, on the map itself.
+
+
+
+![Al Massira reservoir: collapse and comeback, 2017–2026, measured from Sentinel-2](figures/reservoir_timelapse.gif)
 
 > *The headline result: I measured the Al Massira reservoir's water surface from
 > Sentinel-2 satellite imagery, every dry season from 2017 to 2026. It **crashed 91%** to
