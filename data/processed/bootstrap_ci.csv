@@ -1,0 +1,2 @@
+estimate,point,ci95_low,ci95_high,std_error,n_blocks,block_km,n_resamples,farmland_change,baseline_change
+farmland NDVI change minus rainfall baseline,-0.2545,-0.2631,-0.2452,0.0046,698,3.4,2000,-0.1603,0.0942

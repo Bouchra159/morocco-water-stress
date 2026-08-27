@@ -125,6 +125,12 @@ new farmland was just scrubland crossing my threshold after a wet winter.
 Measured against that baseline the answer reverses. The land that was already farmland in 2018
 is 0.25 lower in 2026. The established farms lost green even in a record wet year.
 
+I wanted to know how sure I could be about that number, so I bootstrapped it. Pixels next to
+each other are not independent, they belong to the same field, so I resampled 3.4 km blocks of
+land rather than individual pixels. Two thousand resamples put the decline at 0.254, with a 95%
+range from 0.245 to 0.263. Every single resample came out below zero, so the direction holds.
+That range covers sampling uncertainty only. It does not cover the bigger question of why.
+
 ![Vegetation change on the Souss plain, 2018 to 2026](figures/map_souss_cost.png)
 
 The brown rectangles are real fields.

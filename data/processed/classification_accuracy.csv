@@ -1,0 +1,8 @@
+class,precision,recall,f1,support
+Water,0.989,0.997,0.993,1223.0
+Irrigated crops,1.0,1.0,1.0,11055.0
+Natural shrub / argan,1.0,1.0,1.0,20000.0
+Bare soil / desert,1.0,1.0,1.0,20000.0
+Rock / mountain,0.999,0.997,0.998,5039.0
+OVERALL,,,1.0,57317.0
+KAPPA,,,1.0,

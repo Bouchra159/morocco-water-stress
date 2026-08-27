@@ -1,0 +1,6 @@
+,pred Water,pred Irrigated crops,pred Natural shrub / argan,pred Bare soil / desert,pred Rock / mountain
+true Water,1219,0,0,0,4
+true Irrigated crops,0,11055,0,0,0
+true Natural shrub / argan,0,0,20000,0,0
+true Bare soil / desert,0,0,0,20000,0
+true Rock / mountain,14,0,0,0,5025
