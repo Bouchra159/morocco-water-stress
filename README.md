@@ -198,16 +198,28 @@ quality-control report and an AutoCAD DXF export. There is spatial SQL over that
 with DuckDB, the rasters are published as validated Cloud Optimized GeoTIFFs and the vectors as
 GeoParquet.
 
+The scripts are grouped by what they do:
+
+    src/fetch/         download the raw data (satellite, terrain, rainfall, World Bank)
+    src/analysis/      the measurements: reservoir, rainfall, vegetation, crop stress,
+                       the control tests and the confidence interval
+    src/cartography/   the maps, built in QGIS and ArcGIS Pro
+    src/figures/       charts, the timelapse, and the scrolling web story
+    src/geodata/       the geodatabase, quality control, spatial SQL, and file formats
+
 To reproduce it:
 
     pip install -r requirements.txt
-    python src/fetch_data.py
-    python src/measure_reservoir.py
-    python src/measure_rainshadow.py
-    python src/measure_souss_change.py
 
-Then run the map scripts inside QGIS. Every script says at the top what it does and where it is
-uncertain.
+    python src/fetch/fetch_worldbank.py
+    python src/analysis/measure_reservoir.py
+    python src/analysis/measure_rainshadow.py
+    python src/analysis/measure_souss_change.py
+    python src/analysis/bootstrap_ci.py
+    python src/geodata/qa_qc.py
+
+Then open QGIS and run the scripts in `src/cartography/` from its Python console. Every script
+says at the top what it does and where it is uncertain.
 
 ## Read more
 
