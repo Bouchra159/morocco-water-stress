@@ -277,6 +277,34 @@ Built by `src/fetch_souss_dem.py`, `src/measure_rainshadow.py`,
 (20 Mar – 15 May) so crop growth stage is comparable — before that correction the apparent
 change was inflated to +119%.
 
+## Spatial SQL and cloud-native vector (DuckDB + GeoParquet)
+
+Modern spatial data science happens in a database, not a folder of files.
+`src/pipeline_spatial_sql.py` runs real spatial SQL over the geodatabase using **DuckDB with
+its spatial extension** — server-free, but the same `ST_*` functions you would write against
+**PostGIS** — and publishes the result as **GeoParquet**, the cloud-native vector format that
+replaces the shapefile.
+
+Queries used: `ST_Area`, `ST_Distance`, `ST_DWithin`, `ST_Union_Agg`, `ST_Centroid`,
+`ST_Transform` — with every measurement taken in **UTM 29N (EPSG:32629)**, never in degrees.
+Irrigated Doukkala cropland is vectorised from the NDMI raster into field polygons first, so
+the query answers a real question: *which farmland and which communities are exposed as the
+reservoir retreats?*
+
+**The SQL is validated against an independent measurement** — and that check caught a real bug:
+
+| Al Massira surface | 2017 | 2024 |
+|---|---|---|
+| Measured from Sentinel-2 | 98.8 km² | 9.4 km² |
+| DuckDB `ST_Transform` (default) | 204.5 km² ✗ | 19.6 km² ✗ |
+| DuckDB with `always_xy := true` | **98.8 km² ✓** | **9.4 km² ✓** |
+
+DuckDB's `ST_Transform` honours the *official* EPSG:4326 axis order — **(latitude, longitude)**
+— not the (longitude, latitude) that GeoJSON, shapely and geopandas use. Without
+`always_xy := true` it silently swaps coordinates and every area and distance is wrong by ~2×,
+with no error raised. Nothing but cross-validation against an independent number would have
+caught it. This is why the CRS rule in [CLAUDE.md](CLAUDE.md) exists.
+
 ## Cloud-native geospatial (COG) and agentic-coding practice
 
 This project **reads** Cloud Optimized GeoTIFFs already: every Sentinel-2 scene is a COG on S3,

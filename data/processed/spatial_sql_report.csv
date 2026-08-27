@@ -1,0 +1,5 @@
+layer,features,parquet_mb
+reservoirs,2,0.278
+dams,2,0.011
+communities,5,0.009
+fields,21,1.086
