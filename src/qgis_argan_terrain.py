@@ -6,6 +6,17 @@ and Anti-Atlas argan belt. Hypsometric tint + hillshade from data/dem/souss_dem.
 Output: figures/map_qgis_argan_terrain.png (300 dpi), qgis/argan_terrain.qgz
 """
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
     QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle, QgsColorRampShader,
@@ -18,7 +29,7 @@ from qgis.PyQt.QtGui import QColor, QFont, QPainter
 from qgis.PyQt.QtCore import QRectF
 from qgis.utils import iface
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 DEM = REPO + "/data/dem/souss_dem.tif"
 MM = QgsUnitTypes.LayoutMillimeters
 HYPSO = [(0, "#e8e0c8"), (600, "#d8b98a"), (1200, "#b3895a"),

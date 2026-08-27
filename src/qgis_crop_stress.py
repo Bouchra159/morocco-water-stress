@@ -8,6 +8,17 @@ Needs data/geo/crop_stress_change.tif (run src/measure_crop_stress.py first).
 Output: figures/map_qgis_crop_stress.png (300 dpi), qgis/crop_stress.qgz
 """
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
     QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle, QgsColorRampShader,
@@ -21,7 +32,7 @@ from qgis.PyQt.QtGui import QColor, QFont
 from qgis.PyQt.QtCore import QRectF
 from qgis.utils import iface
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 TIF = REPO + "/data/geo/crop_stress_change.tif"
 AOI = (-8.60, 32.40, -8.35, 32.62)
 MM = QgsUnitTypes.LayoutMillimeters

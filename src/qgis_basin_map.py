@@ -17,6 +17,18 @@ The map centres on the Oum Er-Rbia system: Atlas snowmelt feeds the Al Massira
 reservoir, which supplies Casablanca and the Doukkala irrigated plain.
 """
 
+import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 from qgis.core import (
     Qgis, QgsProject, QgsVectorLayer, QgsRasterLayer, QgsFeature, QgsGeometry,
     QgsPointXY, QgsRectangle, QgsCoordinateReferenceSystem, QgsCoordinateTransform,
@@ -27,7 +39,7 @@ from qgis.core import (
 from qgis.PyQt.QtCore import QSize
 from qgis.PyQt.QtGui import QColor, QFont
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 GEO = REPO + "/data/geo/"
 OUT = REPO + "/figures/qgis_basin_map.png"
 

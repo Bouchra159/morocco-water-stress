@@ -1,3 +1,15 @@
+import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 # -*- coding: utf-8 -*-
 """Build the 'Morocco's Vanishing Water' scrollytelling StoryMap as a
 self-contained HTML file with all images embedded as data URIs."""
@@ -6,8 +18,8 @@ from io import BytesIO
 from pathlib import Path
 from PIL import Image
 
-FIG = Path(r"C:/Users/BOUCHRA/Projects/morocco-water-stress/figures")
-OUT = Path(r"C:/Users/BOUCHRA/Projects/morocco-water-stress/storymap/index.html")
+FIG = Path(Path(_repo_root()) / "figures")
+OUT = Path(Path(_repo_root()) / "storymap" / "index.html")
 
 
 def datauri(im, fmt="JPEG", quality=82):

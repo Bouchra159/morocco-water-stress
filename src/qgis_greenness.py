@@ -7,6 +7,17 @@ Needs data/geo/ndvi_change_argan.tif.
 Output: figures/map_qgis_greenness.png (300 dpi), qgis/greenness.qgz
 """
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
     QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle, QgsColorRampShader,
@@ -19,7 +30,7 @@ from qgis.PyQt.QtGui import QColor, QFont
 from qgis.PyQt.QtCore import QRectF
 from qgis.utils import iface
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 TIF = REPO + "/data/geo/ndvi_change_argan.tif"
 AOI = (-8.65, 30.05, -8.35, 30.35)
 MM = QgsUnitTypes.LayoutMillimeters

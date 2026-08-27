@@ -6,6 +6,17 @@ near Taroudant (Souss / argan area), from data/geo/landcover_souss.tif.
 Output: figures/map_qgis_landcover.png (300 dpi), qgis/landcover.qgz
 """
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 from qgis.core import (
     QgsProject, QgsRasterLayer, QgsCoordinateReferenceSystem, QgsCoordinateTransform,
     QgsRectangle, QgsPalettedRasterRenderer, QgsPrintLayout, QgsLayoutItemMap,
@@ -15,7 +26,7 @@ from qgis.PyQt.QtGui import QColor, QFont
 from qgis.PyQt.QtCore import QRectF
 from qgis.utils import iface
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 TIF = REPO + "/data/geo/landcover_souss.tif"
 AOI = (-8.62, 30.15, -8.28, 30.52)
 MM = QgsUnitTypes.LayoutMillimeters

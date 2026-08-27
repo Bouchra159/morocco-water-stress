@@ -12,8 +12,19 @@ Outputs: figures/map_communities_al_massira.png (300 dpi) + .pdf,
          qgis/al_massira_communities.qgz
 """
 
-import csv
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
+import csv
 from qgis.core import (
     Qgis, QgsProject, QgsVectorLayer, QgsRasterLayer, QgsFeature, QgsGeometry,
     QgsPointXY, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle,
@@ -27,7 +38,7 @@ from qgis.PyQt.QtGui import QFont, QColor
 from qgis.PyQt.QtCore import QRectF
 from qgis.utils import iface
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 GEO = REPO + "/data/geo/"
 GPKG = GEO + "al_massira_water.gpkg"
 CSV = REPO + "/data/raw/communities_al_massira.csv"

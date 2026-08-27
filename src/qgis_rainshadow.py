@@ -12,6 +12,17 @@ Needs data/dem/souss_dem.tif and data/geo/precip_rainshadow.tif
 Output: figures/map_qgis_rainshadow.png (300 dpi), qgis/rainshadow.qgz
 """
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
     QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsColorRampShader, QgsRasterShader,
@@ -25,7 +36,7 @@ from qgis.PyQt.QtCore import QRectF, QPointF
 from qgis.utils import iface
 import processing
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 DEM = REPO + "/data/dem/souss_dem.tif"
 PRECIP = REPO + "/data/geo/precip_rainshadow.tif"
 MM = QgsUnitTypes.LayoutMillimeters

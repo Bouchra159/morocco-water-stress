@@ -14,6 +14,17 @@ Outputs: figures/map_water_journey.png (300 dpi) + .pdf, qgis/water_journey.qgz
 """
 
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 import processing
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry,
@@ -28,7 +39,7 @@ from qgis.core import (
 from qgis.PyQt.QtGui import QColor, QFont, QPainter
 from qgis.PyQt.QtCore import QRectF
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 DEM = REPO + "/data/dem/oer_dem.tif"
 HS = REPO + "/data/dem/oer_hillshade.tif"
 GPKG = REPO + "/data/geo/al_massira_water.gpkg"

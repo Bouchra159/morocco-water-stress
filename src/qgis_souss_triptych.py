@@ -15,6 +15,17 @@ main("all") for the three, then cost() for the fourth "untold" panel.
 Outputs: figures/map_souss_supply.png, _delivery.png, _use.png, _cost.png (300 dpi)
 """
 import os
+import pathlib
+
+
+def _repo_root():
+    """Repo root, whether run as a script or pasted into the QGIS console."""
+    try:
+        return str(pathlib.Path(__file__).resolve().parents[1])
+    except NameError:
+        return os.environ.get("MOROCCO_REPO", os.getcwd())
+
+
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
     QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle, QgsColorRampShader,
@@ -28,7 +39,7 @@ from qgis.PyQt.QtGui import QColor, QFont, QPainter
 from qgis.PyQt.QtCore import QRectF
 from qgis.utils import iface
 
-REPO = "C:/Users/BOUCHRA/Projects/morocco-water-stress"
+REPO = _repo_root()
 DEM = REPO + "/data/dem/souss_massa_dem.tif"
 PRECIP = REPO + "/data/geo/precip_souss_massa.tif"
 NDVI = REPO + "/data/geo/souss_ndvi.tif"
