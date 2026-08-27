@@ -53,11 +53,11 @@ PROCESSED = ROOT / "data" / "processed"
 STAC = "https://earth-search.aws.element84.com/v1/search"
 
 AOI = (-9.60, 30.15, -8.55, 30.75)
-RES = 0.0006
+RES = float(os.environ.get("GH_RES", "0.0006"))   # override for fast diagnostics
 SCL_BAD = {3, 8, 9, 10}
 YEARS = (2018, 2026)
 BANDS = ("blue", "red", "nir", "swir16")
-GREENHOUSE_REF = (-9.58, 30.15, -9.30, 30.32)   # Chtouka / Ait Amira greenhouse belt
+GREENHOUSE_REF = (-9.58, 30.15, -9.28, 30.34)   # Chtouka / Ait Amira greenhouse belt
 LOST_GREEN = 0.15                                # NDVI drop that counts as losing green
 FARM_2018 = 0.35                                 # was irrigated farmland in 2018
 
@@ -171,8 +171,15 @@ def main():
     feats = ("pmli", "brd", "brt")
     print(f"\nreference pixels: plastic={plastic_ref.sum():,}  soil={soil_ref.sum():,}  "
           f"lost-green={lost.sum():,}")
-    if plastic_ref.sum() < 500 or soil_ref.sum() < 500 or lost.sum() < 500:
-        print("  too few reference pixels - aborting")
+    minpx = int(os.environ.get("GH_MINPX", "500"))
+    if plastic_ref.sum() < minpx or soil_ref.sum() < minpx or lost.sum() < minpx:
+        print("  too few reference pixels - diagnosing:")
+        print(f"    finite ndvi 2018 {np.isfinite(a0['ndvi']).sum():,} / 2026 {np.isfinite(a1['ndvi']).sum():,}")
+        for f in ('pmli', 'brd', 'brt'):
+            print(f"    finite {f} 2026  {np.isfinite(a1[f]).sum():,}")
+        print(f"    both-valid       {both.sum():,}")
+        print(f"    in greenhouse box {in_gh.sum():,}  (valid there {(both & in_gh).sum():,})")
+        print(f"    farmland 2018    {(both & (a0['ndvi'] >= FARM_2018)).sum():,}")
         return
 
     print("\n2026 spectral signature of each class:")
@@ -187,12 +194,32 @@ def main():
     mu, sd = np.nanmean(ref_all, axis=0), np.nanstd(ref_all, axis=0) + 1e-9
     cp = (np.array(sig["plastic ref"]) - mu) / sd
     cs = (np.array(sig["soil ref"]) - mu) / sd
+    # --- SEPARABILITY GATE -------------------------------------------------
+    # Before classifying anything, check the classifier can even tell the two
+    # REFERENCE classes apart. If it cannot separate its own training data, any
+    # verdict on the unknown pixels is noise. This is the honesty check.
+    def _assign(mask):
+        Z = (np.column_stack([a1[f][mask] for f in feats]) - mu) / sd
+        return np.linalg.norm(Z - cp, axis=1) < np.linalg.norm(Z - cs, axis=1)
+
+    p_ok = float(_assign(plastic_ref).mean())
+    s_ok = float(1.0 - _assign(soil_ref).mean())
+    sep = 0.5 * (p_ok + s_ok)
+    print("\nSEPARABILITY CHECK (can the two references be told apart?)")
+    print(f"  plastic reference classified plastic : {100*p_ok:5.1f}%")
+    print(f"  soil    reference classified soil    : {100*s_ok:5.1f}%")
+    print(f"  balanced accuracy                    : {100*sep:5.1f}%   (50% = coin flip)")
+
     X = (np.column_stack([a1[f][lost] for f in feats]) - mu) / sd
     is_plastic = np.linalg.norm(X - cp, axis=1) < np.linalg.norm(X - cs, axis=1)
 
     px_km2 = (RES * 111.32) * (RES * 111.32 * np.cos(np.radians(30.45)))
     n = is_plastic.size
     pct_p = 100.0 * is_plastic.sum() / n
+    if sep < 0.70:
+        print("\n>>> INCONCLUSIVE: the plastic and soil signatures overlap too much for")
+        print(">>> this index set to separate them reliably. The panel-4 question stays")
+        print(">>> open; settling it needs finer reference data than NDVI/PMLI/BRD give.")
     print(f"\nOf the farmland that lost its green ({lost.sum() * px_km2:,.0f} km2):")
     print(f"  looks like PLASTIC GREENHOUSE : {pct_p:5.1f}%  ({is_plastic.sum() * px_km2:,.0f} km2)")
     print(f"  looks like BARE SOIL          : {100 - pct_p:5.1f}%  "
@@ -213,6 +240,8 @@ def main():
         "soil_like_pct": round(float(100 - pct_p), 1),
         "plastic_like_km2": round(float(is_plastic.sum() * px_km2), 1),
         "soil_like_km2": round(float((n - is_plastic.sum()) * px_km2), 1),
+        "separability_balanced_acc": round(float(sep), 3),
+        "conclusive": bool(sep >= 0.70),
         "sig_plastic_pmli": round(sig["plastic ref"][0], 4),
         "sig_soil_pmli": round(sig["soil ref"][0], 4),
         "sig_lost_pmli": round(sig["lost green"][0], 4),

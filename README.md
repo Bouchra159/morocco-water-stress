@@ -277,6 +277,28 @@ Built by `src/fetch_souss_dem.py`, `src/measure_rainshadow.py`,
 (20 Mar – 15 May) so crop growth stage is comparable — before that correction the apparent
 change was inflated to +119%.
 
+## Cloud-native geospatial (COG) and agentic-coding practice
+
+This project **reads** Cloud Optimized GeoTIFFs already: every Sentinel-2 scene is a COG on S3,
+which is why a windowed read can pull one small area out of a 100 km scene without downloading
+it. `src/make_cogs.py` closes the loop by making the project's own outputs COGs too — internally
+tiled (512x512), pyramided, and compressed — then **re-opening every file to validate it** rather
+than assuming the write worked:
+
+```
+12/12 outputs validated as Cloud Optimized GeoTIFF
+```
+
+The pyramids are not decoration. Reading a thumbnail of `souss_change.tif` is **21x faster**
+from an overview than reading the full grid (2.8 ms vs 58.5 ms) — that is what lets a COG be
+served to a web map or a cloud process efficiently.
+
+The repo also carries a project-level **[CLAUDE.md](CLAUDE.md)** documenting data conventions,
+CRS discipline, cartographic standards, and the honesty rules this analysis follows — the
+practice taught in Ujaval Gandhi's
+[*Agentic Coding for Geospatial*](https://courses.spatialthoughts.com/agentic-coding-geospatial.html)
+(Spatial Thoughts), where agentic work is **guided and validated**, never autonomous.
+
 ## Does it all hang together? (cross-validation)
 
 Four *independent* measurements — a reservoir, rainfall, crop moisture, and long-term

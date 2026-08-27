@@ -1,0 +1,2 @@
+lost_green_km2,plastic_like_pct,soil_like_pct,plastic_like_km2,soil_like_km2,separability_balanced_acc,conclusive,sig_plastic_pmli,sig_soil_pmli,sig_lost_pmli,sig_plastic_brd,sig_soil_brd,sig_lost_brd
+836.0,69.4,30.6,579.9,256.2,0.677,False,0.2057,0.1841,0.2348,-0.2663,-0.2992,-0.291
