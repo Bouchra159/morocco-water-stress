@@ -158,6 +158,38 @@ still cannot prove why the farmland browned. But it is consistent with theirs, a
 rather point you to the people who can answer it than pretend I already did. The papers are in
 [REFERENCES.md](REFERENCES.md).
 
+## Weighing the water that is left
+
+Everything above measures the surface: the shine of a reservoir, the green of a field. None of
+it can see underground, which is where the south actually keeps most of the water it uses. That
+is the hole in my fourth map.
+
+There is a way to look. GRACE and GRACE-FO are twin satellites that measure tiny changes in
+Earth's gravity, and water is heavy enough to register. Where water leaves a region, gravity
+weakens very slightly, so the satellites can weigh a basin without ever seeing it.
+
+![Total water storage over Morocco's basins, GRACE 2002 to 2026](figures/fig_grace_storage.png)
+
+Both basins are losing water. Souss-Massa is down about 0.24 cm a year of equivalent water
+depth, and the Oum Er-Rbia about 0.44, over 24 years. The gap in 2017 and 2018 is the handover
+between the two missions and I left it empty rather than drawing a line across it.
+
+Two things in that chart are worth pointing at. The steep fall from 2020 is the drought I had
+already measured at the surface, showing up in the region's total weight. And the small rise at
+the very end is the 2025 to 2026 rains, the same ones that refilled Al Massira from 9 km² to
+125. A gravity measurement and a satellite photograph of a lake, which have nothing to do with
+each other, moved together.
+
+I want to be careful about what this is. GRACE measures **total** water storage, snow and rivers
+and soil moisture and groundwater all added together. It is not a groundwater measurement, and
+separating groundwater properly needs a land surface model subtracted from it, which I have not
+done. The footprint is also a few hundred kilometres across, which is wider than either basin,
+so this is the region my valley sits inside rather than my valley itself.
+
+So it does not prove why the farmland browned. It does say the wider region has been losing
+water for twenty years, which is the context that question sits in. Built in
+`src/analysis/measure_grace.py` from CSR mascons, public and no account needed.
+
 ## The three times I was wrong
 
 I think this matters more than any single map.

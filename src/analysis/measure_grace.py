@@ -58,6 +58,25 @@ REGIONS = [
 ]
 
 
+def decode_time(time_da):
+    """Turn the file's time axis into real dates.
+
+    These files label the units attribute "Units" with a capital U, which is not
+    the CF spelling, so xarray leaves the axis as raw floats. Reading those as if
+    they were already timestamps silently collapses every month onto 1970-01-01,
+    which is exactly the sort of error that produces a confident, meaningless
+    trend. So decode it explicitly instead.
+    """
+    units = time_da.attrs.get("units") or time_da.attrs.get("Units") or ""
+    values = np.asarray(time_da.values, dtype=float)
+    if "since" in units:
+        origin = pd.Timestamp(units.split("since", 1)[1].strip().replace("Z", ""))
+        unit = units.split("since", 1)[0].strip().lower()
+        step = {"days": "D", "hours": "h", "seconds": "s"}.get(unit, "D")
+        return pd.to_datetime(origin) + pd.to_timedelta(values, unit=step)
+    return pd.to_datetime(time_da.values)
+
+
 def main() -> None:
     import xarray as xr
 
@@ -92,11 +111,14 @@ def main() -> None:
         ts = sel.mean(dim=[lon_name, lat_name], skipna=True)
         n_cells = sel.sizes.get(lon_name, 0) * sel.sizes.get(lat_name, 0)
         print(f"{name}: {n_cells} grid cells, {ts.sizes['time']} months")
-        for t, v in zip(pd.to_datetime(ts["time"].values), ts.values):
+        for t, v in zip(decode_time(ts["time"]), ts.values):
             rows.append({"region": name, "date": t.date().isoformat(),
                          "lwe_cm": None if np.isnan(v) else round(float(v), 3)})
 
     df = pd.DataFrame(rows)
+    # gaps were stored as None, which leaves the column as object dtype and
+    # makes the least-squares fit below fail; force it to real floats
+    df["lwe_cm"] = pd.to_numeric(df["lwe_cm"], errors="coerce")
     df.to_csv(PROCESSED / "grace_storage.csv", index=False)
     print(f"wrote data/processed/grace_storage.csv ({len(df)} rows)")
 
@@ -106,8 +128,9 @@ def main() -> None:
     for name, *_ in REGIONS:
         d = df[(df.region == name) & df.lwe_cm.notna()].copy()
         d["date"] = pd.to_datetime(d["date"])
-        yrs = (d["date"] - d["date"].min()).dt.days / 365.25
-        slope, intercept = np.polyfit(yrs, d["lwe_cm"], 1)
+        yrs = np.asarray((d["date"] - d["date"].min()).dt.days / 365.25, dtype=float)
+        vals = np.asarray(d["lwe_cm"], dtype=float)
+        slope, intercept = np.polyfit(yrs, vals, 1)
         trends[name] = slope
         span = f"{d['date'].min():%Y} to {d['date'].max():%Y}"
         print(f"  {name:28s} {slope:+.2f} cm/yr   ({span}, n={len(d)})")
@@ -131,8 +154,8 @@ def main() -> None:
         seg.loc[gap, "lwe_cm"] = np.nan
         ax.plot(seg["date"], seg["lwe_cm"], lw=1.4, color=colours[name],
                 label=f"{name}   ({trends[name]:+.2f} cm/yr)")
-        yrs = (d["date"] - d["date"].min()).dt.days / 365.25
-        s, i = np.polyfit(yrs, d["lwe_cm"], 1)
+        yrs = np.asarray((d["date"] - d["date"].min()).dt.days / 365.25, dtype=float)
+        s, i = np.polyfit(yrs, np.asarray(d["lwe_cm"], dtype=float), 1)
         ax.plot(d["date"], s * yrs + i, ls="--", lw=1.1,
                 color=colours[name], alpha=0.75)
 
