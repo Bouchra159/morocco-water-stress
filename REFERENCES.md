@@ -52,6 +52,50 @@ Leading Moroccan hubs for this research include UM6P's **Center for Remote Sensi
 Applications (CRSA)** and its **International Water Research Institute (IWRI)** — the kind
 of community this project is meant to connect with.
 
+## The Souss-Massa groundwater literature, and what it says about my fourth map
+
+My fourth Souss map found that land which was farmland in 2018 had lost vegetation by 2026,
+even after I subtracted the wet-year rainfall baseline. I could not tell you why. My own test
+for separating failing farms from plastic greenhouses was not reliable enough to trust, so the
+repo reports it as inconclusive.
+
+Published work on this exact basin can say more than my data can. I am putting it here because
+the honest position is that my measurement raised the question and other people's research
+answers it.
+
+**El Garouani and colleagues (2026), "The Spectral Illusion of Crop Health: Evaluating the
+Groundwater Cost of Agricultural Maladaptation in the Souss-Massa Basin (Morocco)",
+*Hydrology*, 13(5), 132. [doi:10.3390/hydrology13050132](https://doi.org/10.3390/hydrology13050132)**
+
+Studying 1995 to 2021 in my region, they describe what they call a scissors effect: rainfall
+and natural recharge falling while pumping rises. Cereal areas shrank and irrigated fodder
+crops expanded, especially alfalfa and fodder maize, which need up to 800 mm of water per
+cycle in a place that receives about 99 mm of rain a year. Their central point is the one that
+matters most for my work: the resulting groundwater crisis is *"paradoxically masked from space
+by an artificial attenuation of water stress"*. Fields can look healthy from orbit while the
+aquifer beneath them empties. They call this the spectral illusion.
+
+That is a caution aimed directly at the method I used. A vegetation index measures the canopy,
+not the water table. Green is not proof that the water is there; it can be proof that someone
+is pumping harder.
+
+**Ouatiki and colleagues (2025), "Evaluation of GRACE and GRACE-FO derived products for water
+storage assessment in Moroccan aquifers", *Geocarto International*.
+[doi:10.1080/10106049.2025.2521829](https://doi.org/10.1080/10106049.2025.2521829)**
+
+Shows that the GRACE gravity satellites can track water storage in Moroccan aquifers, and
+reports a clear downward trend. This is the measurement my project is missing: I mapped the
+surface, and GRACE weighs what is underneath. Groundwater in the Souss-Massa basin has fallen
+by roughly 20 to 65 metres over the last thirty years.
+
+**What this means for my conclusions**
+
+It does not change any number I measured, and I have not edited my maps to agree with it. What
+it changes is the reading of my fourth map. Of the two explanations I could not separate,
+failing wells or plastic greenhouses, the literature says groundwater depletion in this basin
+is real, severe and well documented. My data is consistent with that. It still does not prove
+it, and I would need GRACE or well records to say so myself.
+
 ## Context worth knowing
 
 Several of these studies link the reservoir decline not only to prolonged drought (since

@@ -135,10 +135,24 @@ That range covers sampling uncertainty only. It does not cover the bigger questi
 
 The brown rectangles are real fields.
 
-I cannot tell you why yet, and I want to be clear about that. Either the wells are failing, or
-open groves are being replaced by plastic greenhouses, which look dark from orbit. Both would
-mean more pressure on the same groundwater. I built a test to separate them and it did not work
-well enough to trust, so the repo says so.
+I cannot tell you why from my own data, and I want to be clear about that. Either the wells are
+failing, or open groves are being replaced by plastic greenhouses, which look dark from orbit.
+Both would mean more pressure on the same groundwater. I built a test to separate them and it
+did not work well enough to trust, so the repo says so.
+
+Other people have gone further than I could. A study of this exact basin, published this year,
+found that groundwater here has dropped by 20 to 65 metres over thirty years, as farmers moved
+to alfalfa and fodder maize that need around 800 mm of water a cycle in a place that gets 99 mm
+of rain. They call what they found the spectral illusion of crop health: the crisis is
+"paradoxically masked from space" because irrigated fields can look healthy while the aquifer
+below them empties.
+
+That is a warning about the exact method I used. A vegetation index sees the canopy, not the
+water table. Green is not proof that the water is there. It can be proof that somebody is
+pumping harder. I have not changed any of my numbers to match their conclusion, and my data
+still cannot prove why the farmland browned. But it is consistent with theirs, and I would
+rather point you to the people who can answer it than pretend I already did. The papers are in
+[REFERENCES.md](REFERENCES.md).
 
 ## The three times I was wrong
 
