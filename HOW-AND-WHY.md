@@ -92,6 +92,106 @@ of farmland, a protected wetland — is what turns a measurement into a reason t
 is the part I care about most, and the part no algorithm handed me: deciding that the point
 of the map was never the map.
 
+## Why I ran a control on bare desert
+
+This is the decision I would most want to be asked about.
+
+I compared the Souss plain in 2018 and 2026 and the numbers said irrigated land had grown by
+46%. I believed it for about an hour. It was wrong, and the reason it was wrong is that 2026 was
+an unusually wet year. Rain greens everything, including land nobody farms. My threshold for
+"irrigated" was catching scrubland that had simply had a good winter.
+
+So I picked patches of bare desert that had been bare in both years, where nobody irrigates
+anything, and measured how much they greened on their own. The answer was 0.09 NDVI. That is
+the rainfall baseline: the amount of greening you get for free in a wet year.
+
+Subtracting it flips the result. Land that was already farmland in 2018 comes out 0.25 lower in
+2026, not higher. The farms lost ground.
+
+I am putting this first because the lesson is bigger than the number. A before-and-after
+comparison is only as good as its control. Without one, I would have published a confident
+statement that was the opposite of the truth, and it would have looked perfectly reasonable.
+
+## Why I also matched the seasons
+
+Before the control, there was a simpler error. My first 2018 composite came from late spring and
+my 2026 one from early spring. Crops are at different growth stages in April and in February, so
+part of what I was calling "change" was just the calendar.
+
+Forcing both years into the same window, 20 March to 15 May, dropped the apparent change from
+119% to 46%. Then the control took it the rest of the way. Two corrections, both boring, both
+necessary.
+
+## Why I bootstrapped, and why in blocks
+
+Once I had the 0.25 figure I wanted to know how firm it was. The obvious approach is to resample
+pixels at random and see how much the answer moves. That would have been wrong too.
+
+Satellite pixels next to each other are not independent observations. They belong to the same
+field, the same soil, the same irrigation scheme. Treating hundreds of thousands of them as
+independent samples would have produced a confidence interval so narrow it was meaningless,
+something like plus or minus 0.001.
+
+So I resampled blocks of land about 3.4 km across instead, which keeps each block's internal
+correlation intact. Two thousand resamples gave a 95% range of 0.245 to 0.263, and every single
+one came out below zero. The direction is solid. The exact size is not as precise as a naive
+method would have claimed.
+
+That range covers sampling uncertainty only. It says nothing about whether my thresholds were
+sensible or my labels correct.
+
+## Why one of my tests reports "inconclusive" instead of an answer
+
+The fourth Souss map left an obvious question: why did the farmland lose green? Either the wells
+are failing, or the open groves are being replaced by plastic greenhouses, which look dark from
+orbit even though the farming underneath has intensified. Those look identical to a vegetation
+index but different in the shortwave infrared, so I built a test to separate them.
+
+It gave me an answer: 69% plastic greenhouse. I did not publish that number as a finding, because
+I checked something first.
+
+Before trusting a classifier on unknown ground, you can ask whether it can even tell apart the
+two reference groups it learned from. Mine managed 67.7%, against 50% for a coin flip. That is
+too close to chance to build a claim on, so the script prints INCONCLUSIVE and the repo says the
+question is open.
+
+I could have left the check out and reported 69% with a straight face. Nobody would have known.
+That is exactly why the check is in there.
+
+## Why I brought in gravity
+
+Everything else in this project watches sunlight bounce off the ground. That is a real weakness,
+because the south keeps most of its water underground where no camera can see it, and because
+irrigated fields can look healthy right up until the well fails.
+
+GRACE and GRACE-FO measure changes in Earth's gravity, and water is heavy enough to show up. It
+is the only measurement here that does not depend on light at all. Both basins are losing water:
+Souss-Massa about 0.24 cm a year of equivalent depth, the Oum Er-Rbia about 0.44, over 24 years.
+
+The reason I find it convincing is not the trend. It is the small rise at the very end of the
+record, in 2025 and 2026, which matches the rains that refilled Al Massira from 9 km² to 125. A
+gravity measurement and a photograph of a lake share no assumptions, no processing and no
+physics, and they agreed.
+
+What it is not: GRACE measures total water storage, with snow and rivers and soil moisture and
+groundwater added together. It is not a groundwater measurement, and separating groundwater
+needs a land surface model subtracted from it, which I have not done. Its footprint is also a
+few hundred kilometres, wider than either basin. So it describes the region my valley sits
+inside, not the valley.
+
+## Why I cite a paper that answers my own question
+
+While writing this up I found a 2026 study of the Souss-Massa basin that reports groundwater
+falling 20 to 65 metres over thirty years, driven by a shift to alfalfa and fodder maize that
+need around 800 mm of water a cycle where 99 mm of rain falls. The authors call it the spectral
+illusion of crop health: the crisis is masked from space, because irrigated fields can look
+green while the aquifer beneath them empties.
+
+That is a direct warning about the method I used, and it points at the answer I could not reach.
+I have not changed a single number to agree with it, and my data still cannot prove why the
+farmland browned. But it would be dishonest to leave my open question hanging as though nobody
+had studied it. Their work is in [REFERENCES.md](REFERENCES.md).
+
 ## What I know this project is *not*
 
 Naming limits is how I show I understand my own work:
@@ -102,13 +202,32 @@ Naming limits is how I show I understand my own work:
   separate, clearly-labelled file — not something I measured.
 - It is a **personal open-data project**, not peer-reviewed science. Where I lean on
   published research, I say so in [REFERENCES.md](REFERENCES.md).
+- The land-cover classification is **unsupervised**, with labels read off the spectral
+  signatures. It is not ground-truthed, and I have never stood in those fields with a GPS.
+- The GRACE record is **total water storage**, not groundwater, at a footprint wider than
+  either basin.
+- The vegetation work measures **greenness, not water**. A canopy can stay green while the
+  water table falls, which is the whole point of the study I cite above.
 
 ## What I would do next
 
-Bring in radar (Sentinel-1), which sees through cloud, to get water extent year-round;
-pair the surface trend with rainfall and snow data to separate drought from over-use; and,
-if bathymetry ever became available, convert area to volume. But I would only add
-complexity that answers a real question — not to look sophisticated.
+Since I first wrote this section I have done some of what it asked for. The surface trend is
+now paired with rainfall, with 25 years of MODIS vegetation, and with GRACE gravity, and the
+four of them agree.
+
+What is genuinely left:
+
+**Separate groundwater from total storage.** Subtracting a land surface model from GRACE would
+turn a regional water number into a groundwater number, which is the measurement that would
+actually answer why the farmland browned. This is the one I most want to do.
+
+**Radar.** Sentinel-1 sees through cloud, which would give water extent year-round instead of
+only in the clear dry season.
+
+**Ground truth.** Every classification here is spectral guesswork with sensible labels. A few
+days of fieldwork with a GPS would be worth more than another month of code.
+
+I would still rather add nothing than add complexity that answers no question.
 
 ---
 
