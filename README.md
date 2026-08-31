@@ -214,12 +214,18 @@ Every map in this repo says what it cannot tell you, on the map itself.
 Four measurements that have nothing to do with each other all move the same way. That is how I
 know I am not fooling myself.
 
-| | Through the drought | 2025-26 |
+| Measured from | Through the drought | 2025-26 |
 |---|---|---|
-| Reservoir surface | 98 down to 9 km2 | back to 125 km2 |
-| Rainfall near Taroudant | recent decade about 31% below the 1990s | anomalously wet |
-| Doukkala crop moisture | stressed | recovered |
-| Argan vegetation, 25 years | declines through 2015-24 | rebounds |
+| Reservoir surface, Sentinel-2 | 98 down to 9 km2 | back to 125 km2 |
+| Rainfall near Taroudant, NASA POWER | recent decade about 31% below the 1990s | anomalously wet |
+| Doukkala crop moisture, Sentinel-2 | stressed | recovered |
+| Argan vegetation over 25 years, MODIS | declines through 2015-24 | rebounds |
+| Total water storage, GRACE gravity | steep fall from 2020 | small rise at the end |
+
+The last row is the one I trust most, because it has nothing in common with the others. The
+first four all watch sunlight bouncing off the ground. GRACE weighs the region. When a
+photograph of a lake and a measurement of gravity move together, it is hard to argue that
+either one is an artefact of how I processed it.
 
 ![Rainfall near Taroudant since 1990](figures/fig_rainfall_trend.png)
 
