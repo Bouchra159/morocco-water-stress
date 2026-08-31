@@ -49,6 +49,10 @@ between them was lakebed.
 
 ![The 2017 shoreline against the 2024 water](figures/map_al_massira_layout.png)
 
+There is also an [interactive version](storymap/map.html) if you would rather look for yourself.
+Drag the slider to fade between the two years, and click a town to see how many people depend
+on the water. It is one HTML file built with MapLibre, so it opens straight from the folder.
+
 ## Who that water belongs to
 
 A blue shape getting smaller is easy to scroll past, so here is what it holds. The water behind
