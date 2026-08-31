@@ -190,6 +190,51 @@ So it does not prove why the farmland browned. It does say the wider region has 
 water for twenty years, which is the context that question sits in. Built in
 `src/analysis/measure_grace.py` from CSR mascons, public and no account needed.
 
+## Taking the soil out of the signal
+
+GRACE weighs everything at once, so the section above could only say the region is losing
+water. It could not say where from. There is a standard way to go one step further: subtract
+the water held in the soil, using a land surface model, and what is left is mostly what sits
+underneath it.
+
+For the soil term I used ERA5-Land, four layers down to 255 cm, through an API that needs no
+account, so this stays as re-runnable as the rest.
+
+![Total water, soil moisture, and what is left, for two Moroccan basins](figures/fig_groundwater.png)
+
+The two basins answer differently, and that is the interesting part.
+
+| | total water lost | of which soil | left below the soil |
+|---|---|---|---|
+| Souss-Massa, my region | 0.24 cm/yr | 0.06 | **0.19, about 77%** |
+| Oum Er-Rbia, Al Massira | 0.44 cm/yr | 0.30 | 0.14, about 32% |
+
+In the Oum Er-Rbia most of the loss is in the soil. That is what a drought looks like: it rains
+less, the ground dries, and the reservoirs behind the dams fall with it. In Souss-Massa the soil
+barely trends at all. It spikes with every wet winter and returns to about where it started,
+while the total keeps sinking underneath it.
+
+Three quarters of the water disappearing from my region is disappearing from below the root
+zone. Rain is not what is leaving. Something under the ground is.
+
+That is as close as my own data gets to the question the fourth map asked, and I want to be
+careful about how far it goes:
+
+- The soil term is a **model**. Nobody has put a probe in the ground across the Souss, and every
+  error in that model lands in this number, because it is a subtraction.
+- I ignored **snow and surface water**. For Souss-Massa that is fair, it barely snows there. For
+  the Oum Er-Rbia it is not: the Atlas snowpack and Al Massira itself are real storage I have
+  not accounted for, and including them would make that basin's 32% smaller still. So treat 32%
+  as an upper bound and 77% as the more trustworthy of the two.
+- GRACE's footprint is wider than either basin, so this is the region my valley sits in.
+- It is an anomaly, not a volume, and it cannot be turned into metres of water-table drop
+  without knowing the aquifer's specific yield.
+
+So it is not a well record, and it does not prove that failing wells browned the farmland. What
+it does say is that the losses in my region are coming from underground rather than from the
+soil, which is the direction the published work on this basin points as well. Built in
+`src/analysis/measure_groundwater.py`.
+
 ## The three times I was wrong
 
 I think this matters more than any single map.
