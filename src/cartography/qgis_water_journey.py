@@ -26,6 +26,8 @@ def _repo_root():
 
 
 import processing
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent) if "__file__" in dir() else ".")
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry,
     QgsPointXY, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle,
@@ -225,6 +227,11 @@ def main():
 
     label("Terrain: Copernicus GLO-30 DEM (ESA / Copernicus). Shaded relief + hypsometric tint rendered in QGIS.  "
           "Reservoir extent from Sentinel-2. Cartography: B. Daddaoui, 2026.", 8, 291, 7, color="#7a6f5f", width=300)
+
+    from _locator import add_locator
+
+    add_locator(proj, layout, m, REPO)
+
 
     exporter = QgsLayoutExporter(layout)
     s = QgsLayoutExporter.ImageExportSettings()

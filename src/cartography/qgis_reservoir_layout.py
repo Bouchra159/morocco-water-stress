@@ -24,6 +24,8 @@ def _repo_root():
         return os.environ.get("MOROCCO_REPO", os.getcwd())
 
 
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent) if "__file__" in dir() else ".")
 from qgis.core import (
     Qgis, QgsProject, QgsVectorLayer, QgsRasterLayer, QgsFeature, QgsGeometry,
     QgsPointXY, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle,
@@ -122,8 +124,8 @@ def layout_and_export(proj, order):
     m.setFrameStrokeColor(QColor("#333333"))
     layout.addLayoutItem(m)
 
-    label("A Reservoir Vanishing", 8, 6, 30, bold=True, color="#0d3b5c")
-    label("Al Massira, Morocco — measured from Sentinel-2 satellite imagery, 2017 vs 2024",
+    label("A Reservoir at its Lowest", 8, 6, 30, bold=True, color="#0d3b5c")
+    label("Al Massira, Morocco — measured from Sentinel-2, the full 2017 shoreline against the 2024 drought low",
           9, 20, 13, color="#444444")
 
     panel = QgsLayoutItemShape(layout)
@@ -137,6 +139,8 @@ def layout_and_export(proj, order):
     label("of the reservoir's water surface\nlost between 2017 and 2024",
           312, 63, 11, color="#333333", width=95)
     label("98 km²  →  9 km²", 312, 83, 13, bold=True, color="#0d3b5c", width=95)
+    label("The reservoir refilled to 125 km² in 2026 after record rains. This map shows the "
+          "drought low, not the end of the story.", 312, 92, 9, color="#555555", width=95)
 
     leg = QgsLayoutItemLegend(layout)
     leg.setLinkedMap(m)
@@ -171,6 +175,11 @@ def layout_and_export(proj, order):
     label("Method: NDWI + Otsu on Sentinel-2 L2A (dry-season), cloud-masked with SCL.  "
           "Imagery: Sentinel-2 / Copernicus via Earth Search.  Basemap: Esri World Imagery.  "
           "Analysis & cartography: B. Daddaoui, 2026.", 8, 291, 7, color="#777777", width=300)
+
+    from _locator import add_locator
+
+    add_locator(proj, layout, m, REPO)
+
 
     exporter = QgsLayoutExporter(layout)
     s = QgsLayoutExporter.ImageExportSettings()

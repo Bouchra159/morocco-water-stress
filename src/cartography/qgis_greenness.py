@@ -18,6 +18,8 @@ def _repo_root():
         return os.environ.get("MOROCCO_REPO", os.getcwd())
 
 
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent) if "__file__" in dir() else ".")
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
     QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle, QgsColorRampShader,
@@ -123,6 +125,9 @@ def main():
           "Cartography: B. Daddaoui, 2026.", 8, 291, 7, color="#777", width=300)
 
     png = REPO + "/figures/map_qgis_greenness.png"
+    from _locator import add_locator
+    add_locator(proj, layout, m, REPO)
+
     exp = QgsLayoutExporter(layout); st = QgsLayoutExporter.ImageExportSettings(); st.dpi = 300
     print("export:", exp.exportToImage(png, st))
     proj.write(REPO + "/qgis/greenness.qgz")

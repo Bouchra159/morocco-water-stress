@@ -19,6 +19,8 @@ def _repo_root():
         return os.environ.get("MOROCCO_REPO", os.getcwd())
 
 
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent) if "__file__" in dir() else ".")
 from qgis.core import (
     Qgis, QgsProject, QgsRasterLayer, QgsVectorLayer, QgsFeature, QgsGeometry, QgsPointXY,
     QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle, QgsColorRampShader,
@@ -174,6 +176,11 @@ def main():
     layout.addLayoutItem(na)
     label("NDMI = (NIR\u2212SWIR)/(NIR+SWIR) from Sentinel-2 (Copernicus). Basemap: Esri World Imagery. "
           "Cartography: B. Daddaoui, 2026.", 8, 291, 7, color="#777777", width=300)
+
+    from _locator import add_locator
+
+    add_locator(proj, layout, m, REPO)
+
 
     exporter = QgsLayoutExporter(layout)
     s = QgsLayoutExporter.ImageExportSettings()

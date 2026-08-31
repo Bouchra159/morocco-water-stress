@@ -25,6 +25,8 @@ def _repo_root():
 
 
 import csv
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent) if "__file__" in dir() else ".")
 from qgis.core import (
     Qgis, QgsProject, QgsVectorLayer, QgsRasterLayer, QgsFeature, QgsGeometry,
     QgsPointXY, QgsCoordinateReferenceSystem, QgsCoordinateTransform, QgsRectangle,
@@ -228,6 +230,11 @@ def build_layout(proj, order):
     label("Region population: HCP Morocco 2024 census. City sizes: 2014 census. Irrigation: ORMVAD (Doukkala).  "
           "Reservoir extents measured from Sentinel-2 (NDWI+Otsu). Basemap: CARTO / OpenStreetMap.  "
           "Analysis & cartography: B. Daddaoui, 2026.", 8, 291, 7, color="#777777", width=300)
+
+    from _locator import add_locator
+
+    add_locator(proj, layout, m, REPO)
+
 
     exporter = QgsLayoutExporter(layout)
     s = QgsLayoutExporter.ImageExportSettings()
