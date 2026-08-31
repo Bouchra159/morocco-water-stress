@@ -71,3 +71,44 @@ Towns that depend on the reservoir's water.
 Every layer passes the automated checks in `src/qa_qc.py`; the current result is in
 [QA_QC_REPORT.md](QA_QC_REPORT.md) (CRS, geometry validity, attribute completeness,
 duplicate ids, coordinate range).
+
+## GRACE and GRACE-FO water storage
+
+**File:** `data/processed/grace_storage.csv` (516 rows)
+**Made by:** `src/analysis/measure_grace.py`
+**Source:** CSR GRACE/GRACE-FO RL06.03 mascons, University of Texas Center for Space Research.
+Public download, no account needed. The raw file (108 MB) is not committed; the script tells you
+where to get it.
+
+| column | meaning |
+|---|---|
+| `region` | Souss-Massa, or Oum Er-Rbia |
+| `date` | month of the solution |
+| `lwe_cm` | liquid water equivalent thickness anomaly, centimetres, against the mission mean |
+
+**Coverage:** April 2002 to 2026, 258 monthly solutions per region, with a gap through 2017 and
+2018 between the two missions. The gap is left empty rather than interpolated.
+
+**Limits, which matter here:**
+- This is **total** water storage. Snow, surface water, soil moisture and groundwater are all in
+  one number. Separating groundwater needs a land surface model subtracted from it, which this
+  project has not done.
+- The footprint is a few hundred kilometres, wider than either basin. Read it as the region a
+  basin sits inside, not the basin itself.
+- Values are anomalies, not absolute storage. Only the change over time means anything.
+
+**A trap worth recording:** these files spell the time units attribute `Units` with a capital U
+rather than the CF-standard `units`, so xarray does not decode the axis. Read naively, the raw
+values (days since 2002-01-01) get treated as nanoseconds since 1970 and every month collapses
+onto the same date. The script decodes the axis explicitly for that reason.
+
+## Global comparison
+
+**File:** `data/raw/global_water_comparison.csv`
+**Made by:** hand, from published sources; each row carries its own citation.
+**Used by:** `src/figures/build_global_context.py`
+
+Peak and recent surface areas for the Aral Sea, Lake Chad, Lake Mead and Al Massira, with the
+years measured. Only the Al Massira row comes from this project's own measurement. The others
+are cited figures and are approximate, which is why the figure compares shares rather than
+absolute areas.

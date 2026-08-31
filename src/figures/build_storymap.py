@@ -69,6 +69,8 @@ IMG = {
     "del": load("map_souss_delivery.png", 1600, "JPEG", 86),
     "use": load("map_souss_use.png", 1600, "JPEG", 86),
     "cost": load("map_souss_cost.png", 1600, "JPEG", 86),
+    "grace": load("fig_grace_storage.png", 1500, "JPEG", 88),
+    "global": load("fig_global_context.png", 1400, "JPEG", 88),
 }
 
 # the animation must stay a GIF (embed raw bytes, not re-encoded)
@@ -397,6 +399,46 @@ footer h3{{color:var(--text); margin-top:0}}
   wells are failing, or open groves are being replaced by plastic greenhouses, which read dark
   from orbit. Both mean more pressure on the same aquifer. I would rather show you a map that
   states its own limits than one that sounds certain.</p>
+</div></section>
+
+<section class="section--tint"><div class="wrap reveal">
+  <p class="eyebrow">Weighing what is left</p>
+  <h2>The water you cannot photograph</h2>
+  <p>Everything up to here measures the surface: the shine of a reservoir, the green of a field.
+  None of it can see underground, which is where the south actually keeps most of the water it
+  uses. That is the hole in the map I just showed you.</p>
+  <p>There is a way to look. <strong>GRACE</strong> and GRACE-FO are twin satellites that measure
+  tiny changes in Earth&rsquo;s gravity, and water is heavy enough to register. Where water leaves
+  a region, gravity weakens very slightly. So they can weigh a basin without ever seeing it.</p>
+  <div class="figure"><img src="{IMG['grace']}" alt="GRACE total water storage over two Moroccan basins, 2002 to 2026, both declining" loading="lazy">
+    <p class="cap">Total water storage from GRACE and GRACE-FO gravity satellites, 2002&ndash;2026. The gap is the handover between the two missions.</p></div>
+  <p>Both basins are losing water. Souss-Massa is down about <strong>0.24 cm a year</strong> of
+  equivalent water depth, the Oum Er-Rbia about <strong>0.44</strong>, over twenty-four years.</p>
+  <p class="pull">A gravity measurement and a photograph of a lake have nothing in common. They
+  moved together anyway.</p>
+  <p>Look at the far right of that chart. The small rise at the end is the 2025&ndash;26 rains, the
+  same ones that took Al&nbsp;Massira from 9&nbsp;km&sup2; back to 125. Two instruments that share
+  no assumptions, no processing and no physics agreed about a wet winter in Morocco.</p>
+  <p class="muted">Being careful about what this is: GRACE measures <em>total</em> water storage,
+  snow and rivers and soil moisture and groundwater added together, not groundwater alone. Its
+  footprint is a few hundred kilometres, wider than either basin. So it is the region my valley
+  sits inside, not the valley itself. It does not prove why the farmland browned. It says the
+  wider region has been losing water for twenty years, which is the context that question sits in.</p>
+</div></section>
+
+<section><div class="wrap reveal">
+  <p class="eyebrow">For scale</p>
+  <h2>Not the worst, and not the same</h2>
+  <p>It is tempting to say Morocco is becoming the next Aral Sea. The numbers do not support that,
+  and the differences matter more than the similarity.</p>
+  <div class="figure"><img src="{IMG['global']}" alt="Al Massira compared with the Aral Sea, Lake Chad and Lake Mead" loading="lazy">
+    <p class="cap">Four water bodies, by share of surface lost and over how long. Sources on the figure.</p></div>
+  <p>Al&nbsp;Massira lost about the same <em>share</em> as the Aral Sea and Lake Chad. But those
+  took roughly sixty years each and neither has come back. Al&nbsp;Massira did it in
+  <strong>seven</strong>, and then refilled.</p>
+  <p>That is not a smaller problem. It is a different one. A slow, permanent loss can at least be
+  planned around. A reservoir that empties and fills within a decade breaks the assumption every
+  dam, canal and farm was built on, which is that next year will look roughly like this one.</p>
 </div></section>
 
 <section><div class="wrap reveal">
